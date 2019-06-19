@@ -51,8 +51,8 @@ db
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
-        app.listen(3001, function () {
-            console.log('listening on *:3001');
+        app.listen(process.env.PORT, function () {
+            console.log('listening on ' + process.env.PORT);
         });
     })
     .catch(err => {
