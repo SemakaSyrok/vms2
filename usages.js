@@ -7,8 +7,8 @@ module.exports = (app, bodyParser) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.use('/static', express.static(__dirname + '/user/dist/static'));
     app.use('/static1', express.static(__dirname + '/client/dist/static1'));
+    app.use('/static', express.static(__dirname + '/user/dist/static'));
 
     app.use('/', function (req, res, next) {
         console.log(req.headers);
