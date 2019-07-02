@@ -14,14 +14,14 @@ module.exports = (app) => {
     app.post('/login', AuthController.login);
 
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/index.html');
+        res.sendFile(__dirname + '/user/dist/index.html');
     });
 
     app.get('/admin', (req, res) => {
-        res.sendFile(__dirname + '/admin/index.html');
+        res.sendFile(__dirname + '/client/dist/index.html');
     });
 
-    app.get('/api/cameras', CameraController.userCameras)
+    app.get('/api/cameras', CameraController.userCameras);
 
     app.post('/user', UsersController.createUser);
 
