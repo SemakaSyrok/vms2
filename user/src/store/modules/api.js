@@ -1,7 +1,7 @@
 
 const state = {
-    // url: 'https://domles-camera.herokuapp.com',
-    url: 'https://localhost:3001',
+    url: 'https://domles-camera.herokuapp.com',
+    // url: 'https://localhost:3001',
     is_request: false,
     token: null
 };

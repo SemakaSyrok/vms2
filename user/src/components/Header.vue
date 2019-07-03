@@ -1,7 +1,7 @@
 <template>
     <span>
 
-<nav class="nav">
+<nav class="nav" :class="is_noone()">
         <div class="brand">
             <img src="@/assets/logo.png" class="img" width="38" height="34" alt="logo">
         </div>
