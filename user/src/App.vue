@@ -2,6 +2,7 @@
     <div id="app">
         <div id="wrapper">
             <Header/>
+            <div class="divider"></div>
             <router-view/>
         </div>
         <Footer/>
@@ -36,6 +37,9 @@
     }
     #wrapper{
         min-height: 95vh;
+    }
+    .divider{
+        margin-top: 60px;
     }
 
 </style>
