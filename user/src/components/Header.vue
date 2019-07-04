@@ -11,7 +11,7 @@
         <div class="menu">
             <div>
                 <div>
-                    <ul>
+                    <ul style="padding-left: 0px;">
                         <li>
                             <p class="nav-link"
                                          @click="goto('')"

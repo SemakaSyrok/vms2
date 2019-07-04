@@ -9,6 +9,7 @@ module.exports = (app, bodyParser) => {
 
     app.use('/static1', express.static(__dirname + '/client/dist/static1'));
     app.use('/static', express.static(__dirname + '/user/dist/static'));
+    app.use('/sw.js', express.static(__dirname + '/sw.js'));
 
     app.use('/', function (req, res, next) {
         console.log(req.headers);

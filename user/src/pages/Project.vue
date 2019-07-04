@@ -25,7 +25,10 @@
 
 <script>
     export default {
-        name: "Project"
+        name: "Project",
+        beforeCreate: function () {
+            if (this.$store.getters.SELF.logged === false) this.$router.push('login');
+        },
     }
 </script>
 
