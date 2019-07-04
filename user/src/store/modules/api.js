@@ -2,7 +2,7 @@
 const state = {
     url: 'https://domles-camera.herokuapp.com',
     is_request: false,
-    token: snull
+    token: null
 };
 const getters = {
     API: state => state,
