@@ -3,7 +3,7 @@ import router from '@/router'
 const state = {
     id: null,
     login: '',
-    logged: true,
+    logged: false,
 };
 const getters = {
     SELF: state =>  state

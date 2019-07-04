@@ -1,9 +1,8 @@
 
 const state = {
-    // url: 'https://domles-camera.herokuapp.com',
-    url: 'https://localhost:3001',
+    url: 'https://domles-camera.herokuapp.com',
     is_request: false,
-    token: null
+    token: snull
 };
 const getters = {
     API: state => state,
