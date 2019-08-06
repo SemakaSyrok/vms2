@@ -12,20 +12,43 @@
 <script>
     import Header from "./components/Header";
     import Footer from "./components/Footer";
+
     export default {
         name: 'App',
-        components: {Header, Footer},
-        created: {
-            // star() {
-            //     if(!this.$store.getters.SELF.logged) router.push('/login');
-            // }
-        },
-        beforeCreate: {
-            start() {
-                if(!this.$store.getters.SELF.logged) router.push('/login');
+        data() {
+            return {
+                io: null
             }
         },
+        components: {Header, Footer},
+        created: {
+
+        },
+        beforeCreate() {
+            let token = localStorage.getItem('token') || null;
+            let login = localStorage.getItem('login') || null;
+            let id = localStorage.getItem('id') || null;
+
+            if(token && login && id) {
+
+                this.$store.dispatch('loginUserByStorage', {
+                    login: login,
+                    id: id,
+                    token: token
+                })
+            }
+
+            if(!this.$store.getters.SELF.logged) {
+                router.push('/login');
+            }
+        },
+        mounted() {
+            this.$store.dispatch('connect');
+        },
         methods: {
+
+        },
+        updated() {
 
         }
     }

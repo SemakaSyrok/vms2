@@ -1,6 +1,7 @@
 
 const state = {
-    url: 'https://domles-camera.herokuapp.com',
+    // url: 'https://domles-camera.herokuapp.com',
+    url: 'http://localhost:3001',
     is_request: false,
     token: null
 };
@@ -10,13 +11,15 @@ const getters = {
     TOKEN: state => state.token
 };
 const mutations = {
-    request_status:(state, payload)=> {
+    request_status:(state, payload) => {
         state.is_request = payload
     },
     token:(state, payload) => {
-        state.token = payload
+        state.token = payload;
+        localStorage.setItem('token', state.token);
     },
     token_destroy: (state) => {
+        localStorage.removeItem('token');
         state.token = null
     }
 };

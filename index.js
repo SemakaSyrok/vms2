@@ -1,7 +1,14 @@
 require('dotenv').config();
-const db = require('./models/db')
-const User = require('./models/user')
+const db = require('./models/db');
+
+const User = require('./models/user');
 const Camera = require("./models/camera");
+const Coast = require("./models/coasts");
+const Benefit = require("./models/question");
+const Question = require("./models/benefit");
+const Message = require("./models/message");
+const Work = require("./models/work");
+
 const app = require('express')();
 const bodyParser = require('body-parser');
 const sequelize = require('sequelize');
@@ -9,41 +16,73 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
+
 db.sync({force: false}).then(() => {
-    // User.create({
-    //     login: "abminadmin",
-    //     name: "Алексей",
-    //     pass: "12pass32word99",
-    //     token: "111111111",
-    //     is_admin: 1
-    // });
-    // User.create({
-    //     login: "testUser",
-    //     name: "Алексейa",
-    //     pass: "testpassword",
-    //     token: "1111111112",
-    //     is_admin: 0
-    // });
-    // Camera.create({
-    //     name: 'Камера',
-    //     connection_string: 'http://217.197.157.7:7070/axis-cgi/mjpg/video.cgi?camera=1',
-    //     owner_id: 2
-    // });
-    // Camera.create({
-    //     name: 'Камера2',
-    //     connection_string: 'http://meteobunyol.axiscam.net:9000/mjpg/video.mjpg',
-    //     owner_id: 2
-    // });
+
 });
 // sequelize.sync()
 
+require('./usages')(app, bodyParser);
+require('./routes')(app);
 
-require('./usages')(app, bodyParser)
-require('./routes')(app)
+let getUser = async (token) => {
 
+    return await User.findOne({
+        attributes: ["id", "login", "name", "pass", "is_admin"],
+        where: {
+            token: token
+        }
+    }).then(user => user)
+    .catch(err => null)
+};
 
-io.on('connection', function (socket) {
-    console.log('a user connected');
+io.use( async (socket, next) => {
+    let token = socket.handshake.query.token;
+    let user = await getUser(token);
+    if (token) {
+        socket.user = user;
+        return next();
+    }
+    return next(new Error('authentication error'));
+});
+
+let createMessage = async (socket, msg) => {
+    return await Message.create({
+        text:msg,
+        user_id: socket.user.id ,
+        room: socket.room
+    }).then(message => message).catch(err => err)
+};
+
+io.on('connection', (socket) => {
+    console.log("user connected");
+
+    socket.on('createRoom', (room) => {
+       socket.join(room);
+       socket.room = room;
+       // console.log(`user ${socket.user.name} join ${room} room`);
+        //TODO: Зарегать компонент соообщение
+    });
+
+    socket.on('leaveRoom', (room) => {
+        socket.leave(room);
+        socket.room = null;
+        console.log(`user ${socket.user.name} leave ${room} room`);
+    });
+
+    socket.on('message', async msg => {
+        console.log(msg + " message!!!");
+        try {
+            const message = await createMessage(socket, msg);
+            io.to(socket.room).emit('message', message);
+        } catch(err) {
+            console.log(err);
+        }
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
 });
 
 
@@ -51,12 +90,11 @@ db
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
-        app.listen(process.env.PORT, function () {
-            console.log('listening on ' + process.env.PORT);
+        http.listen(3001, function () {
+            console.log('listening on ' + 3001);
         });
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
     });
-
 

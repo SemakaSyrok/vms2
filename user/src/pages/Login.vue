@@ -39,6 +39,9 @@
                     password: this.password
                 })
             }
+        },
+        beforeCreate() {
+
         }
     }
 </script>

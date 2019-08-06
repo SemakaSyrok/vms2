@@ -25,6 +25,48 @@
                             >Проект</p>
                         </li>
                         <li>
+                            <p class="nav-link"
+                               @click="goto('chat/' + id())"
+                               :class=" activeLink('/chat')"
+                            >Чат</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('coasts')"
+                               :class=" activeLink('/coasts')"
+                            >Расценки</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('benefit')"
+                               :class=" activeLink('/benefit')"
+                            >Полезное</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('unswers')"
+                               :class=" activeLink('/unswers')"
+                            >Вопрос/Ответ</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('works')"
+                               :class=" activeLink('/works')"
+                            >Наши работы</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('news')"
+                               :class=" activeLink('/news')"
+                            >Новинки</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
+                               @click="goto('bonuses')"
+                               :class=" activeLink('/bonuses')"
+                            >Бонусы</p>
+                        </li>
+                        <li>
                             <p class="nav-link pointer p-2" @click="logout()">Выйти</p>
                         </li>
                     </ul>
@@ -59,6 +101,9 @@
                 let el = document.getElementById('toggler');
                 el.checked = false;
                 this.$router.push('/'+path);
+            },
+            id() {
+                return this.$store.getters.SELF.id;
             }
         }
     }
@@ -251,6 +296,7 @@
         width: 100%;
         height: 60px;
         background: #343a40;
+        z-index: 99;
     }
 
     .brand {
@@ -259,10 +305,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 5;
+        z-index: 100;
     }
 
     .pointer{
         cursor: pointer;
+    }
+
+    .menu-wrap .menu > div > div > ul > li {
+        padding: 0rem;
     }
 </style>

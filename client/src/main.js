@@ -6,18 +6,20 @@ import router from './router'
 // import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import {store} from './store'
+import {store} from './store';
+import io from 'socket.io-client';
 
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
 
 
 /* eslint-disable no-new */
-new Vue({
+let app = new Vue({
     el: '#app',
     router,
     store,
     components: {App},
     template: '<App/>'
-})
+});
+
+

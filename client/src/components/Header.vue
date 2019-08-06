@@ -1,8 +1,8 @@
 <template>
     <span>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar" :class="is_noone()">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " id="navbar" :class="is_noone()">
             <a class="navbar-brand" href="#">
-                <img src="@/assets/logo.png" width="38" height="34" alt="">
+                <img src="@/assets/logo.png" width="38" height="34" :class="{request: request}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,32 +19,57 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
-                                     to="cameras"
+                                     to="/cameras"
                                      :class=" activeLink('/cameras')"
                         >Камеры</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
-                                     to="users"
+                                     to="/users"
                                      :class=" activeLink('/users')"
                         >Пользователи</router-link>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <router-link class="nav-link"-->
-<!--                                     to="chats"-->
-<!--                                     :class=" activeLink('/chats')"-->
-<!--                        >Чаты</router-link>-->
-<!--                    </li>-->
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/chats"
+                                     :class=" activeLink('/chat')"
+                        >Чаты</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/works"
+                                     :class=" activeLink('/works')"
+                        >Работы</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/coasts"
+                                     :class=" activeLink('/coasts')"
+                        >Расценки</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/questions"
+                                     :class=" activeLink('/questions')"
+                        >Вопрос/Ответ</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/benefit"
+                                     :class=" activeLink('/benefit')"
+                        >Полезное</router-link>
+                    </li>
                     <li class="nav-item">
                         <button class="btn btn-primary nav-link ml-lg-4 p-2" @click="logout()">Выйти</button>
                     </li>
                 </ul>
 
             </div>
+            <div class="loading-bar" v-if="this.$store.getters.REQUEST">
+                <div class="loading-elem"></div>
+            </div>
         </nav>
-        <div class="loading-bar" v-if="this.$store.getters.REQUEST">
-            <div class="loading-elem"></div>
-        </div>
+    
     </span>
 </template>
 
@@ -53,8 +78,9 @@
         name: "Header"
         ,
         computed: {
-            
-            
+            request() {
+                return this.$store.getters.REQUEST
+            }
         },
         methods: {
             activeLink(path) {
@@ -65,7 +91,8 @@
             },
             logout() {
                 this.$store.dispatch('logout');
-            }
+            },
+
         }
     }
 </script>
@@ -74,10 +101,17 @@
     .none {
         display: none;
     }
+    .request {
+        
+    }
     .loading-bar{
         height: 3px;
         width: 100%;
         background: #3bd931;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 9999;
     }
     .loading-elem{
         width: 30%;
@@ -92,5 +126,4 @@
         0%{margin-left: 0%}
         100%{margin-left: 70%}
     }
-
 </style>

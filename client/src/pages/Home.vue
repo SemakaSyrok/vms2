@@ -25,7 +25,7 @@
         computed: {
 
         },
-        beforeCreate: function () {
+        beforeCreate () {
             if(this.$store.getters.SELF.logged === false) {
                 this.$router.push('/login');
                 return;

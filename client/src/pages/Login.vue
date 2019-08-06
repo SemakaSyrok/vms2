@@ -31,6 +31,9 @@
                 password: ''
             }
         },
+        beforeCreate() {
+
+        },
         methods:  {
             submit() {
                 this.$store.dispatch('login', {
