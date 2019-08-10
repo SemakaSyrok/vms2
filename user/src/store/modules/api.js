@@ -1,6 +1,6 @@
 
 const state = {
-    url: 'https://video-surveillance-system.herokuapp.com/',
+    url: 'https://video-surveillance-system.herokuapp.com',
     // url: 'http://localhost:3001',
     is_request: false,
     token: null
