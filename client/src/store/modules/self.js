@@ -42,11 +42,14 @@ const actions = {
             return res.status === 200 ? res.json() : null
         })
         .then(payload => {
-            if(payload === null) return;
+            if(payload === null) {
+                alert('Authorization Error')
+                return;
+            }
             commit('login', payload);
             commit('token', payload.token) 
         })
-        .catch(err => alert('Ошибка авторизации'))
+        .catch(err => alert('Authorization Error'))
         .finally(() => commit('request_status', false))        
     },
     logout: ({commit}) => {

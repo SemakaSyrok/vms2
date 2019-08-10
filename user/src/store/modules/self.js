@@ -37,10 +37,13 @@ const actions = {
             body: JSON.stringify({ login: payload.login, password: payload.password })
         })
         .then(res => {
-            return res.status === 200 ? res.json() : alert('Ошибка авторизации')
+            return res.status === 200 ? res.json() : null
         })
         .then(payload => {
-            if(payload === null) return;
+            if(payload === null) {
+                alert('Authorization error')
+                return;
+            }
             commit('login', payload);
             commit('token', payload.token);
             commit('connect', rootState.api.token) 

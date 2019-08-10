@@ -11,7 +11,7 @@ const getters = {
 };
 const mutations = {
     connect: (state, payload) => {
-        state.io = io('http://localhost:3001', {
+        state.io = io('https://video-surveillance-system.herokuapp.com', { //токен поменять
             query: {
                 token: payload
             }
