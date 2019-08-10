@@ -8,6 +8,8 @@ const Benefit = require("./models/question");
 const Question = require("./models/benefit");
 const Message = require("./models/message");
 const Work = require("./models/work");
+const News = require("./models/news");
+const Bonuses = require("./models/bonus");
 
 const app = require('express')();
 const bodyParser = require('body-parser');
@@ -67,7 +69,6 @@ io.on('connection', (socket) => {
     socket.on('leaveRoom', (room) => {
         socket.leave(room);
         socket.room = null;
-        console.log(`user ${socket.user.name} leave ${room} room`);
     });
 
     socket.on('message', async msg => {
@@ -90,8 +91,8 @@ db
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
-        http.listen(3001, function () {
-            console.log('listening on ' + 3001);
+        http.listen(process.env.PORT, function () {
+            console.log('listening on ' + process.env.PORT);
         });
     })
     .catch(err => {

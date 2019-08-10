@@ -1,6 +1,6 @@
 <template>
     <div class="container pt-4"> 
-        <h2>Цены</h2>
+        <h2>Pricing</h2>
         <hr>
         <div class="px-2" 
         v-for="(coast, idx) in coasts" 
@@ -39,7 +39,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения расценок')
+                    alert('Error receiving pricing')
                     this.$store.commit('request_status', false);    
                 })
             }

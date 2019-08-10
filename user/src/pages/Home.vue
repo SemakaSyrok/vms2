@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper container-fluid">
-        <button class="btn btn-primary mt-2 mb-1" @click="getCameras()">Получить данные с камер</button>
+        <button class="btn btn-primary mt-2 mb-1" @click="getCameras()">Get Video</button>
         <span v-if="camera()">
             <h3> {{ camera().name }}</h3>
             <img :src="camera().connection_string"

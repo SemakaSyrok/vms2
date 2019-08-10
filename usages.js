@@ -124,4 +124,80 @@ module.exports = (app, bodyParser) => {
             .then(user => (user.is_admin === 1 ? next() : res.sendStatus(401)))
             .catch(err => res.sendStatus(401))
     });
+
+    app.use("/question*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            next();
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        })
+            .then(user => (user.is_admin === 1 ? next() : res.sendStatus(401)))
+            .catch(err => res.sendStatus(401))
+    });
+
+    app.use("/benefit*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            next();
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        })
+            .then(user => (user.is_admin === 1 ? next() : res.sendStatus(401)))
+            .catch(err => res.sendStatus(401))
+    });
+
+    app.use("/bonuses*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            next();
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        })
+            .then(user => (user.is_admin === 1 ? next() : res.sendStatus(401)))
+            .catch(err => res.sendStatus(401))
+    });
+
+    app.use("/news*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            next();
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        })
+            .then(user => (user.is_admin === 1 ? next() : res.sendStatus(401)))
+            .catch(err => res.sendStatus(401))
+    });
+
+    app.use("/work*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            next();
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        })
+            .then(user => {
+                if (user.is_admin === 1 || req.method === 'GET') 
+                    next() 
+                else
+                     res.sendStatus(401)
+            })
+            .catch(err => res.sendStatus(401))
+    });
+
 };

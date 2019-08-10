@@ -42,7 +42,8 @@ const actions = {
         .then(payload => {
             if(payload === null) return;
             commit('login', payload);
-            commit('token', payload.token) 
+            commit('token', payload.token);
+            commit('connect', rootState.api.token) 
         })
         .catch(err => console.log(err))
         .finally(() => commit('request_status', false))        
@@ -54,6 +55,7 @@ const actions = {
     loginUserByStorage: ({commit, rootstate}, payload) => {
         commit('token', payload.token);
         commit('login', payload);
+        commit('connect', rootState.api.token);
     }
 };
 

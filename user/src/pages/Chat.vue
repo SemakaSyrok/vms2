@@ -18,7 +18,7 @@
         </div>
         <div class="bottom-panel">
             <input type="text" class="bottom-input" v-model="message" >
-            <button class="bottom-btn" @click="sendMessage()">Отправить</button>
+            <button class="bottom-btn" @click="sendMessage()">Send</button>
         </div>
     </div>
 </template>
@@ -55,6 +55,10 @@ import { log } from 'util';
         },
         methods: {
             sendMessage() {
+                if(this.message.length >= 140) {
+                    alert('Message length not more then 140 symbols');
+                    return;
+                }
                 this.$store.dispatch('sendMessage', this.message);
                 this.message = '';
             },
@@ -67,13 +71,14 @@ import { log } from 'util';
                             'Authorization': this.$store.getters.API.token
                         }
                     });
+                    if(this.offset === 0) 
+                        setTimeout("window.scrollTo(0, document.body.offsetHeight + 100);", 275);
                     this.$store.dispatch('getMessages', response);
                     this.$store.commit('request_status', false);
-                    this.offset++;
+                    
                 } catch (error) {
-                    alert('Ошибка изменения');
-                    this.$store.commit('request_status', false);
-                    console.log(error);
+                    alert('Error receiving messages');
+                    this.$store.commit('request_status', false);;
                 }
             },
             TopScroll() {
@@ -101,6 +106,7 @@ import { log } from 'util';
             }
             this.room_id = this.$route.params.id;
             this.getMessages();
+            
         },
         beforeDestroy() {
             this.$store.getters.IO.emit('leaveRoom', this.room_id);

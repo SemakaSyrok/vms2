@@ -3,7 +3,7 @@
         <p>Chat</p>
         <div class="bottom-panel">
             <input type="text" class="bottom-input">
-            <button class="bottom-btn">Отправить</button>
+            <button class="bottom-btn">Send</button>
         </div>
     </div>
 </template>

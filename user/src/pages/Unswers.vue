@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>Вопрос/Ответ</h2>
+        <h2>FAQ</h2>
 
         <hr>
 

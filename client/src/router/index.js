@@ -12,6 +12,8 @@ import Questions from "../pages/Questions";
 import Benefit from "../pages/Benefit";
 import Works from "../pages/Works";
 import Work from "../pages/Work";
+import News from "../pages/News";
+import Bonuses from "../pages/Bonuses";
 
 import { store } from "@/store/index";
 
@@ -29,6 +31,16 @@ export default new Router({
             path: '/works',
             name: 'works',
             component: Works,
+        },
+        {
+            path: '/news',
+            name: 'news',
+            component: News,
+        },
+        {
+            path: '/bonuses',
+            name: 'bonuses',
+            component: Bonuses,
         },
         {
             path: '/work/:id',

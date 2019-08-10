@@ -43,7 +43,9 @@
             }
         },
         mounted() {
-            this.$store.dispatch('connect');
+            if(this.$store.getters.SELF.logged) {
+                this.$store.dispatch('connect');
+            }
         },
         methods: {
 

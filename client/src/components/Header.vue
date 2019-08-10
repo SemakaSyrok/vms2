@@ -19,6 +19,18 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
+                                     to="/news"
+                                     :class=" activeLink('/news')"
+                        >Новинки</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/bonuses"
+                                     :class=" activeLink('/bonuses')"
+                        >Бонусы</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link"
                                      to="/cameras"
                                      :class=" activeLink('/cameras')"
                         >Камеры</router-link>

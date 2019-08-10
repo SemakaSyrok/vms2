@@ -16,58 +16,52 @@
                             <p class="nav-link"
                                          @click="goto('')"
                                          :class=" activeLink('/')"
-                            >Главная</p>
-                        </li>
-                        <li>
-                            <p class="nav-link"
-                                         @click="goto('project')"
-                                         :class=" activeLink('/project')"
-                            >Проект</p>
+                            >Main</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('chat/' + id())"
                                :class=" activeLink('/chat')"
-                            >Чат</p>
+                            >Chat</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('coasts')"
                                :class=" activeLink('/coasts')"
-                            >Расценки</p>
+                            >Pricing</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('benefit')"
                                :class=" activeLink('/benefit')"
-                            >Полезное</p>
+                            >Benefits</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('unswers')"
                                :class=" activeLink('/unswers')"
-                            >Вопрос/Ответ</p>
+                            >FAQ</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('works')"
                                :class=" activeLink('/works')"
-                            >Наши работы</p>
+                            >Completed</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('news')"
                                :class=" activeLink('/news')"
-                            >Новинки</p>
+                            >New</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('bonuses')"
                                :class=" activeLink('/bonuses')"
-                            >Бонусы</p>
+                            >Bonuses</p>
                         </li>
                         <li>
-                            <p class="nav-link pointer p-2" @click="logout()">Выйти</p>
+                            <p class="nav-link pointer p-2" @click="logout()">Logout</p>
                         </li>
                     </ul>
                 </div>

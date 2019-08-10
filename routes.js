@@ -7,6 +7,8 @@ const QuestionController =  require('./controllers/QuestionController');
 const BenefitController =  require('./controllers/BenefitController');
 const MessagesController =  require('./controllers/MessagesControlle');
 const WorkController = require('./controllers/WorkController');
+const BonusesController = require('./controllers/BonusesController');
+const NewsController = require('./controllers/NewsController');
 
 const path = require('path');
 
@@ -16,12 +18,17 @@ module.exports = (app) => {
     app.options('/camera', CameraController.options);
     app.options('/coasts', CoastController.options);
     app.options('/questions', QuestionController.options);
+    app.options('/works', WorkController.options);
+    app.options('/news', NewsController.options);
+    app.options('/bonuses', BonusesController.options);
     app.options('/benefit', BenefitController.options);
     app.options('/api/cameras', CameraController.options);
     app.options('/api/questions', QuestionController.options);
     app.options('/api/benefits', BenefitController.options);
     app.options('/api/coasts', CoastController.options);
     app.options('/api/works', WorkController.options);
+    app.options('/api/news', NewsController.options);
+    app.options('/api/bonuses', BonusesController.options);
 
 
 
@@ -41,6 +48,8 @@ module.exports = (app) => {
     app.get('/api/benefits', BenefitController.getBenefit);
     app.get('/api/questions', QuestionController.getQuestion);
     app.get('/api/works', WorkController.getWorks);
+    app.get('/api/news', NewsController.getNews);
+    app.get('/api/bonuses', BonusesController.getBonuses);
 
 
     //users
@@ -80,6 +89,20 @@ module.exports = (app) => {
 
     //messages
     app.get('/messages/:id/:offset', MessagesController.getMessages);
+
+
+    //bonuses
+    app.get("/bonuses", BonusesController.getBonuses);
+    app.post("/bonuses", BonusesController.newBonuses);
+    app.delete("/bonuses/:id", BonusesController.deleteBonuses);
+    app.put("/bonuses/:id", BonusesController.updateBonuses);
+
+
+    //news
+    app.get("/news", NewsController.getNews);
+    app.post("/news", NewsController.newNews);
+    app.delete("/news/:id", NewsController.deleteNews);
+    app.put("/news/:id", NewsController.updateNews);
 
 
     //work
