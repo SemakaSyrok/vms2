@@ -19,7 +19,7 @@ const io = require('socket.io')(http);
 
 
 
-db.sync({force: true}).then(() => {
+db.sync({force: false}).then(() => {
 
     User.create({
         login:'abminadmin',
@@ -31,7 +31,7 @@ db.sync({force: true}).then(() => {
     })
 
 });
-sequelize.sync()
+// sequelize.sync()
 
 require('./usages')(app, bodyParser);
 require('./routes')(app);
