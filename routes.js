@@ -35,12 +35,12 @@ module.exports = (app) => {
     app.post('/login', AuthController.login);
 
     app.get('/', (req, res) => {
-        res.setHeader('Upgrade-Insecure-Requests', 0;
+        res.setHeader('Upgrade-Insecure-Requests', 0);
         res.sendFile(__dirname + '/user/dist/index.html');
     });
 
     app.get('/admin', (req, res) => {
-        res.setHeader('Upgrade-Insecure-Requests', 0;
+        res.setHeader('Upgrade-Insecure-Requests', 0);
         res.sendFile(__dirname + '/client/dist/index.html');
     });
 
