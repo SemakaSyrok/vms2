@@ -13,7 +13,6 @@
 <script>
     import Header from "./components/Header";
     import Footer from "./components/Footer";
-    import io from 'socket.io-client';
 
     export default {
         name: 'App',
