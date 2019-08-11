@@ -3,7 +3,6 @@ var CURRENT_CACHES = {
     css:'css-cache-v1',
     js:'js-cache-v1',
     site: 'site-cache-v1',
-    image: 'image-cache-v1'
 };
 
 self.addEventListener('install', (event) => {

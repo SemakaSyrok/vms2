@@ -35,12 +35,12 @@ module.exports = (app) => {
     app.post('/login', AuthController.login);
 
     app.get('/', (req, res) => {
-        res.setHeader('Mixed-Content', 'noupgrade');
+        // res.setHeader('Mixed-Content', 'noupgrade');
         res.sendFile(__dirname + '/user/dist/index.html');
     });
 
     app.get('/admin', (req, res) => {
-        res.setHeader('Mixed-Content', 'noupgrade');
+        // res.setHeader('Mixed-Content', 'noupgrade');
         res.sendFile(__dirname + '/client/dist/index.html');
     });
 
