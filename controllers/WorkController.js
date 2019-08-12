@@ -51,13 +51,11 @@ module.exports = {
         Work.findOne({
             where: { id: req.params.id }
         }).then(work => {
-            console.log(work.images[0]);
             if (work.images.length > 0) {
                 for (let i = 0; i < work.images.length; i++) {
                     try {
                         fs.unlinkSync('./uploads/' + work.images[i]);
                     } catch (err) {
-                        console.log(err)
                         error = true; break;
                     }
                 }
@@ -66,6 +64,7 @@ module.exports = {
                 work.destroy();
                 res.sendStatus(200);
             } else {
+                work.destroy();
                 res.sendStatus(400);
             }
         }).catch(err => res.sendStatus(401));

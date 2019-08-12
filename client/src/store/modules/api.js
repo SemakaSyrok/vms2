@@ -16,10 +16,10 @@ const mutations = {
     },
     token:(state, payload) => {
         state.token = payload;
-        localStorage.setItem('token', state.token);
+        localStorage.setItem('_token', state.token);
     },
     token_destroy: (state) => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('_token');
         state.token = null;
     }
 };

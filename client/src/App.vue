@@ -23,9 +23,9 @@
             }
         },
         beforeCreate() {
-            let token = localStorage.getItem('token') || null;
-            let login = localStorage.getItem('login') || null;
-            let id = localStorage.getItem('id') || null;
+            let token = localStorage.getItem('_token') || null;
+            let login = localStorage.getItem('_login') || null;
+            let id = localStorage.getItem('_id') || null;
 
             if(token && login && id) {
 

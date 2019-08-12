@@ -309,4 +309,8 @@
     .menu-wrap .menu > div > div > ul > li {
         padding: 0rem;
     }
+
+    .nav-link {
+        padding: 0 0 0 0;
+    }
 </style>

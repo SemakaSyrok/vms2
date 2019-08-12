@@ -15,16 +15,16 @@ const mutations = {
         state.login = payload.login;
         state.id = payload.id;
         state.logged = true;
-        localStorage.setItem('login', payload.login);
-        localStorage.setItem('id', payload.id);
+        localStorage.setItem('_login', payload.login);
+        localStorage.setItem('_id', payload.id);
         router.push('/');
     },
     logout: (state) => {
         state.id = null;
         state.login = null;
         state.logged = false;
-        localStorage.removeItem('login');
-        localStorage.removeItem('id');
+        localStorage.removeItem('_login');
+        localStorage.removeItem('_id');
         router.push('login')
     }
 };
