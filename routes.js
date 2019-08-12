@@ -1,4 +1,3 @@
-
 const AuthController =  require('./controllers/AuthController');
 const CameraController =  require('./controllers/CameraController');
 const UsersController =  require('./controllers/UsersController');
@@ -9,6 +8,9 @@ const MessagesController =  require('./controllers/MessagesControlle');
 const WorkController = require('./controllers/WorkController');
 const BonusesController = require('./controllers/BonusesController');
 const NewsController = require('./controllers/NewsController');
+
+var httpProxy = require('http-proxy');
+var proxy = httpProxy.createProxyServer({});
 
 const path = require('path');
 
@@ -30,13 +32,19 @@ module.exports = (app) => {
     app.options('/api/news', NewsController.options);
     app.options('/api/bonuses', BonusesController.options);
 
-
-
     app.post('/login', AuthController.login);
 
     app.get('/', (req, res) => {
         res.setHeader('Upgrade-Insecure-Requests', 0);
         res.sendFile(__dirname + '/user/dist/index.html');
+    });
+
+    app.get('/proxy/*', function (req, res) {
+        req.url = req.url.replace('/proxy/', '');
+
+        proxy.web(req, res, {
+            target: req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]
+        });
     });
 
     app.get('/admin', (req, res) => {
