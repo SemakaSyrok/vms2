@@ -36,6 +36,7 @@
                     id: id,
                     token: token
                 })
+                this.$store.dispatch('connect');
             }
 
             if(!this.$store.getters.SELF.logged) {
@@ -43,9 +44,7 @@
             }
         },
         mounted() {
-            if(this.$store.getters.SELF.logged) {
-                this.$store.dispatch('connect');
-            }
+            
         },
         methods: {
 

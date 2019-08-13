@@ -20,14 +20,14 @@ const io = require('socket.io')(http);
 
 db.sync({force: false}).then(() => {
 
-    User.create({
-        login:'abminadmin',
-        pass: 'Passw0rd',
-        name: 'Simon',
-        is_admin: 1,
-        token: ''
+    // User.create({
+    //     login:'abminadmin',
+    //     pass: 'Passw0rd',
+    //     name: 'Simon',
+    //     is_admin: 1,
+    //     token: ''
 
-    })
+    // })
 
 });
 // sequelize.sync()

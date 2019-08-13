@@ -10,7 +10,7 @@
         <div class="hamburger"><div></div></div>
         <div class="menu">
             <div>
-                <div>
+                <div style="overflow:auto">
                     <ul style="padding-left: 0px;">
                         <li>
                             <p class="nav-link"
@@ -104,8 +104,9 @@
 </script>
 
 <style scoped>
+
     .none {
-        display: none;
+        display: none;  
     }
 
     .nav-link {

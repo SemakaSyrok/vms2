@@ -10,10 +10,11 @@ const getters = {
     MESSAGES: state => state.messages
 };
 const mutations = {
-    connect: (state, payload) => {
-        state.io = io('https://video-surveillance-system.herokuapp.com', { //токен поменять
+    connect: ( state , payload, ) => {
+        state.io = null;
+        state.io = io(payload.url, { //токен поменять
             query: {
-                token: payload
+                token: payload.token
             }
         });
     },
@@ -34,7 +35,10 @@ const mutations = {
 };
 const actions = {
     connect: ({commit, rootState}) => {
-        commit('connect', rootState.api.token)
+        commit('connect', {
+            token : rootState.api.token,
+            url: rootState.api.url
+        })
     },
     sendMessage: ({commit, rootState}, payload) => {
         rootState.socket.io.emit('message', payload)

@@ -69,7 +69,6 @@ import { log } from 'util';
                     });
                     this.$store.dispatch('getMessages', response);
                     this.$store.commit('request_status', false);
-                    this.offset++;
                 } catch (error) {
                     alert('Ошибка изменения');
                     this.$store.commit('request_status', false);

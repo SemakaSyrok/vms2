@@ -12,6 +12,11 @@ const NewsController = require('./controllers/NewsController');
 var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer({});
 
+proxy.on('error', function (err, req, res) {
+    console.log('proxy error');
+    console.log(err); console.log();
+});
+
 const path = require('path');
 
 module.exports = (app) => {

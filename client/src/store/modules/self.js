@@ -11,7 +11,6 @@ const getters = {
 };
 const mutations = {
     login: ( state , payload) => {
-        console.log(payload)
         state.login = payload.login;
         state.id = payload.id;
         state.logged = true;
@@ -25,7 +24,7 @@ const mutations = {
         state.logged = false;
         localStorage.removeItem('_login');
         localStorage.removeItem('_id');
-        router.push('login')
+        router.push('/login')
     }
 };
 const actions = {

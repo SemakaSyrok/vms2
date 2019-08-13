@@ -65,7 +65,7 @@ module.exports = {
                 res.sendStatus(200);
             } else {
                 work.destroy();
-                res.sendStatus(400);
+                res.sendStatus(200);
             }
         }).catch(err => res.sendStatus(401));
     },

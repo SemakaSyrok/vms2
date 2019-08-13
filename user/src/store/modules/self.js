@@ -23,11 +23,11 @@ const mutations = {
         state.logged = false;
         localStorage.removeItem('login');
         localStorage.removeItem('id');
-        router.push('login')
+        router.push('/login')
     }
 };
 const actions = {
-    login:  async ({ state, rootState , commit}, payload) => {
+    login: async ({ state, rootState, commit, dispatch}, payload) => {
         commit('request_status', true);
         fetch(`${rootState.api.url}/login`, {
             method: "POST",
@@ -46,7 +46,7 @@ const actions = {
             }
             commit('login', payload);
             commit('token', payload.token);
-            commit('connect', rootState.api.token) 
+            dispatch('connect', rootState.api.token)  //Диспатч а не комит!!!
         })
         .catch(err => console.log(err))
         .finally(() => commit('request_status', false))        
@@ -55,10 +55,10 @@ const actions = {
         commit('logout');
         commit('token_destroy');
     },
-    loginUserByStorage: ({commit, rootState}, payload) => {
+    loginUserByStorage: ({commit, rootState, dispatch}, payload) => {
         commit('token', payload.token);
         commit('login', payload);
-        commit('connect', rootState.api.token);
+        dispatch('connect', rootState.api.token) 
     }
 };
 

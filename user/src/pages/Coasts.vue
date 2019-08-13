@@ -7,7 +7,7 @@
         :key=idx>
             <div class="row my-2 px-2 justify-content-between">
                 <h6 class="">{{ coast.name}} </h6>
-                <h6 class="">{{ coast.coast}} руб</h6>
+                <h6 class="">{{ coast.coast}} $</h6>
             </div>
         </div>
     </div>

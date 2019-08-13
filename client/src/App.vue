@@ -34,6 +34,7 @@
                     id: id,
                     token: token
                 })
+                this.$store.dispatch('connect');
             }
             if(!this.$store.getters.SELF.logged) {
                 router.push('/login');
@@ -42,7 +43,7 @@
 
         },
         mounted() {
-            this.$store.dispatch('connect');
+            
         },
         methods: {
 
