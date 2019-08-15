@@ -99,8 +99,8 @@ db
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
-        http.listen(process.env.PORT, function () {
-            console.log('listening on ' + process.env.PORT);
+        http.listen(3001, function () {
+            console.log('listening on ' + 3001);
         });
     })
     .catch(err => {

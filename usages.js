@@ -197,7 +197,7 @@ module.exports = (app, bodyParser) => {
                 else
                      res.sendStatus(401)
             })
-            .catch(err => res.sendStatus(401))
+            .catch(err => res.sendStatus(400))
     });
 
 };

@@ -46,7 +46,10 @@ const actions = {
             }
             commit('login', payload);
             commit('token', payload.token);
-            dispatch('connect', rootState.api.token)  //Диспатч а не комит!!!
+            commit('connect', {
+                token: rootState.api.token,
+                url: rootState.api.url
+            })
         })
         .catch(err => console.log(err))
         .finally(() => commit('request_status', false))        
@@ -58,7 +61,10 @@ const actions = {
     loginUserByStorage: ({commit, rootState, dispatch}, payload) => {
         commit('token', payload.token);
         commit('login', payload);
-        dispatch('connect', rootState.api.token) 
+        commit('connect', {
+            token: rootState.api.token,
+            url: rootState.api.url
+        }) 
     }
 };
 

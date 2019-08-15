@@ -53,6 +53,9 @@ import { log } from 'util';
                 return this.$store.getters.MESSAGES.length;
             }
         },
+        beforeCreate() {
+            if (this.$store.getters.SELF.logged === false) this.$router.push('/login');
+        },
         methods: {
             sendMessage() {
                 if(this.message.length >= 140) {
