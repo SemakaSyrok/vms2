@@ -1,7 +1,7 @@
 
 const state = {
     // url: 'https://video-surveillance-system.herokuapp.com',
-    url: 'http://82.146.44.70',
+    url: 'https://domles-nsk.ru',
     is_request: false,
     token: null
 };

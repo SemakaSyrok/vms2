@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>FAQ</h2>
+        <h2>Вопрос/Ответ</h2>
 
         <hr>
 
@@ -45,7 +45,7 @@
                     this.$store.commit('request_status', true);
                 })
                 .catch(err => {
-                    alert('Ошибка получения расценок')
+                    alert('Ошибка получения вопросов')
                     this.$store.commit('request_status', true);    
                 })
             }

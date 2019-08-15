@@ -16,52 +16,52 @@
                             <p class="nav-link"
                                          @click="goto('')"
                                          :class=" activeLink('/')"
-                            >Main</p>
+                            >Главная</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('chat/' + id())"
                                :class=" activeLink('/chat')"
-                            >Chat</p>
+                            >Чат</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('coasts')"
                                :class=" activeLink('/coasts')"
-                            >Pricing</p>
+                            >Расценки</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('benefit')"
                                :class=" activeLink('/benefit')"
-                            >Benefits</p>
+                            >Полезное</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('unswers')"
                                :class=" activeLink('/unswers')"
-                            >FAQ</p>
+                            >Вопрос/Ответ</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('works')"
                                :class=" activeLink('/works')"
-                            >Completed</p>
+                            >Наши работы</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('news')"
                                :class=" activeLink('/news')"
-                            >New</p>
+                            >Новинки</p>
                         </li>
                         <li>
                             <p class="nav-link"
                                @click="goto('bonuses')"
                                :class=" activeLink('/bonuses')"
-                            >Bonuses</p>
+                            >Бонусы</p>
                         </li>
                         <li>
-                            <p class="nav-link pointer p-2" @click="logout()">Logout</p>
+                            <p class="nav-link pointer p-2" @click="logout()">Выход</p>
                         </li>
                     </ul>
                 </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>Our Bonuses</h2>
+        <h2>Бонусы</h2>
 
         <hr>
 
@@ -46,7 +46,7 @@
                     this.$store.commit('request_status', true);
                 })
                 .catch(err => {
-                    alert('Error receiving bonuses')
+                    alert('Ошибка получения бонусов')
                     this.$store.commit('request_status', true);    
                 })
             }

@@ -1,6 +1,6 @@
 <template>
     <div class="container pt-4">
-        <h2>Completed</h2>
+        <h2>Наши работы</h2>
 
         <hr>
 
@@ -14,16 +14,6 @@
                         <h4>{{work.name}}</h4>
                     </div>
 
-                    <div class="map">
-                        <div class="mapouter col-12">
-                            <div class="gmap_canvas">
-                                <iframe width="100%" height="300" id="gmap_canvas" 
-                                v-bind:src="'https://maps.google.com/maps?q='+work.shir+','+work.dolg+'&t=&z=13&ie=UTF8&iwloc=&output=embed'" 
-                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                            </div> 
-                        </div>
-                    </div>
-
                     <p class="px-3 pt-1 my-3" >
                         {{ work.desc }}
                     </p>
@@ -31,7 +21,7 @@
                     <router-link 
                         class="btn btn-primary m-2"
                         v-bind:to="'/work/'+work.id" >
-                        Photos
+                        Фотографии
                     </router-link>
                     
                 </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>New</h2>
+        <h2>Новинки</h2>
 
         <hr>
 
@@ -46,7 +46,7 @@
                     this.$store.commit('request_status', true);
                 })
                 .catch(err => {
-                    alert('Error receiving news')
+                    alert('Ошибка получения новинок')
                     this.$store.commit('request_status', true);    
                 })
             }

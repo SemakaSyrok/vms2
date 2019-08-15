@@ -2,7 +2,7 @@
     <div >
         <div class="container-fluid ">
             <div class="row justify-content-center">
-                <div class="col-sm-12 messages-box ">
+                <div class="col-sm-12 messages-box pt-72">
                     <div class="">
                         <transition-group name="message" class="messages row p-2 mb-1">
                             <message v-for="(msg) in messages"
@@ -18,7 +18,7 @@
         </div>
         <div class="bottom-panel">
             <input type="text" class="bottom-input" v-model="message" >
-            <button class="bottom-btn" @click="sendMessage()">Send</button>
+            <button class="bottom-btn" @click="sendMessage()">Отправить</button>
         </div>
     </div>
 </template>
@@ -59,7 +59,7 @@ import { log } from 'util';
         methods: {
             sendMessage() {
                 if(this.message.length >= 140) {
-                    alert('Message length not more then 140 symbols');
+                    alert('Длинна сообщения не более 140 символов');
                     return;
                 }
                 this.$store.dispatch('sendMessage', this.message);
@@ -80,7 +80,7 @@ import { log } from 'util';
                     this.$store.commit('request_status', false);
                     
                 } catch (error) {
-                    alert('Error receiving messages');
+                    alert('Ошибка получения сообщений');
                     this.$store.commit('request_status', false);;
                 }
             },
@@ -119,6 +119,9 @@ import { log } from 'util';
 </script>
 
 <style scoped>
+    .pt-72{
+        padding-top: 72px;
+    }
     .bottom-panel {
         z-index: 1;
         position: fixed;

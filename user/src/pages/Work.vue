@@ -5,6 +5,18 @@
 
         <hr>
 
+        <div class="map">
+            <div class="mapouter col-12">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="300" id="gmap_canvas" 
+                    v-bind:src="'https://maps.google.com/maps?q='+work.shir+','+work.dolg+'&t=&z=13&ie=UTF8&iwloc=&output=embed'" 
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
         <div class="images">
             <img 
                 v-bind:src="$store.getters.API.url + '/uploads/' + img"
@@ -49,7 +61,7 @@
                     this.work = response.data[0];
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Error reciving images');
+                    alert('Ошибка получения выполненых работ');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }

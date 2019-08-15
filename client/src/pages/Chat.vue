@@ -2,7 +2,7 @@
     <div >
         <div class="container-fluid ">
             <div class="row justify-content-center">
-                <div class="col-sm-12 messages-box ">
+                <div class="col-sm-12 messages-box pt-72">
                     <div class="">
                         <transition-group name="message" class="messages row p-2 mb-1">
                             <message v-for="(msg) in messages"
@@ -109,6 +109,9 @@ import { log } from 'util';
 </script>
 
 <style scoped>
+    .pt-72{
+        padding-top: 72px;
+    }
     .bottom-panel {
         z-index: 1;
         position: fixed;
