@@ -58,6 +58,8 @@ import { log } from 'util';
         },
         methods: {
             sendMessage() {
+                if(this.message.length <= 0) return;
+
                 if(this.message.length >= 140) {
                     alert('Длинна сообщения не более 140 символов');
                     return;

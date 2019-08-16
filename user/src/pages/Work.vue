@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
         
-        <h2>Photos</h2>
+        <h2>Фотографии</h2>
 
         <hr>
 
