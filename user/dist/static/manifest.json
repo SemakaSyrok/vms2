@@ -1,6 +1,6 @@
 {
-    "short_name": "VMS",
-    "name": "Video Managment System",
+    "short_name": "ДомЛес",
+    "name": "ДомЛес",
     "icons": [
         {
             "src": "/static/icons/icon-72x72.png",
