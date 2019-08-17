@@ -2,7 +2,23 @@
 
 const sequelize = require('sequelize');
 const Work = require('../models/work');
+const formidable = require('formidable');
 const fs = require('fs')
+
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+
+    destination: function (req, file, callback) {
+        callback(null, './uploads');
+    },
+
+    filename: function (req, file, callback) {
+        callback(null, file.fieldname + '-' + Date.now());
+    }
+});
+
+const upload = multer({ storage: storage }).single('img');
 
 module.exports = {
     getWorks(req, res) {
@@ -70,22 +86,37 @@ module.exports = {
         }).catch(err => res.sendStatus(401));
     },
 
+
     UploadWorkImage(req, res) {
-        console.log(req.files);
-            let file = req.files.img,
-                filename = Date.now() + req.files.img.name;
-            file.mv('./uploads/'+filename, (err) => {
-                if(!err){
-                    Work.update(
-                        { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
-                        { 'where': { 'id': req.params.id } }
-                    ).then(work => {
-                        res.sendStatus(200);
-                    }).catch(err => sendStatus(400))
-                } else 
-                    res.sendStatus(400);
-            })
+        upload(req, res, function (err) {
+            if (!err) {
+                Work.update(
+                    { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
+                    { 'where': { 'id': req.params.id } }
+                ).then(work => {
+                    res.sendStatus(200);
+                }).catch(err => sendStatus(400))
+            } else
+                res.sendStatus(400);
+        });
     },
+
+    // UploadWorkImage(req, res) {
+    //     console.log(req);
+    //         let file = req.files.img,
+    //             filename = Date.now() + req.files.img.name;
+    //         file.mv('./uploads/'+filename, (err) => {
+    //             if(!err){
+    //                 Work.update(
+    //                     { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
+    //                     { 'where': { 'id': req.params.id } }
+    //                 ).then(work => {
+    //                     res.sendStatus(200);
+    //                 }).catch(err => sendStatus(400))
+    //             } else 
+    //                 res.sendStatus(400);
+    //         })
+    // },
 
     DeleteWorkImage(req, res) {
             Work.findOne(
