@@ -7,18 +7,20 @@ const fs = require('fs')
 
 const multer = require('multer');
 
-const storage = multer.diskStorage({
+var storage = multer.diskStorage({
 
     destination: function (req, file, callback) {
         callback(null, './uploads');
     },
 
     filename: function (req, file, callback) {
-        callback(null, file.fieldname + '-' + Date.now());
+      // custom function to change filename
+      var fileExtension = file.originalname.split('.');
+      callback(null, `${file.fieldname}-${Date.now()}.${fileExtension[fileExtension.length - 1]}`);
     }
 });
 
-const upload = multer({ storage: storage }).single('img');
+var upload = multer({ storage: storage }).single('img');
 
 module.exports = {
     getWorks(req, res) {
@@ -87,37 +89,38 @@ module.exports = {
     },
 
 
-    UploadWorkImage(req, res) {
-        upload(req, res, function (err) {
-            if (!err) {
-                Work.update(
-                    { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
-                    { 'where': { 'id': req.params.id } }
-                ).then(work => {
-                    res.sendStatus(200);
-                }).catch(err => sendStatus(400))
-            } else
-                res.sendStatus(400);
-        });
-    },
+ //   UploadWorkImage(req, res) {
+//        upload(req, res, function (err) {
+//            if (!err) {
+//	console.log(req.file)
+         //       Work.update(
+        //            { 'images': sequelize.fn('array_append', sequelize.col('images'), req.file) },
+       //             { 'where': { 'id': req.params.id } }
+      //          ).then(work => {
+     //               res.sendStatus(200);
+    //            }).catch(err => sendStatus(400))
+   //         } else
+  //              res.sendStatus(400);
+ //       });
+//    },
     //
 
-    // UploadWorkImage(req, res) {
-    //     console.log(req);
-    //         let file = req.files.img,
-    //             filename = Date.now() + req.files.img.name;
-    //         file.mv('./uploads/'+filename, (err) => {
-    //             if(!err){
-    //                 Work.update(
-    //                     { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
-    //                     { 'where': { 'id': req.params.id } }
-    //                 ).then(work => {
-    //                     res.sendStatus(200);
-    //                 }).catch(err => sendStatus(400))
-    //             } else 
-    //                 res.sendStatus(400);
-    //         })
-    // },
+     UploadWorkImage(req, res) {
+         console.log(req);
+             let file = req.files.img,
+                 filename = Date.now() + req.files.img.name;
+             file.mv('./uploads/'+filename, (err) => {
+                 if(!err){
+                   Work.update(
+                      { 'images': sequelize.fn('array_append', sequelize.col('images'), filename) },
+                         { 'where': { 'id': req.params.id } }
+                     ).then(work => {
+                         res.sendStatus(200);
+                     }).catch(err => sendStatus(400))
+                } else 
+                     res.sendStatus(400);
+            })
+     },
 
     DeleteWorkImage(req, res) {
             Work.findOne(

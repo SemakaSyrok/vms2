@@ -48,7 +48,7 @@ module.exports = (app, bodyParser) => {
     });
 
     app.use('/coasts', function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+        //res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
         res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
         res.setHeader('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET');
         res.setHeader('Access-Control-Allow-Credentials', true);
