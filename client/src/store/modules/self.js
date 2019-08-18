@@ -46,7 +46,11 @@ const actions = {
                 return;
             }
             commit('login', payload);
-            commit('token', payload.token) 
+            commit('token', payload.token);
+            commit('connect', {
+                token: rootState.api.token,
+                url: rootState.api.url
+            })
         })
         .catch(err => alert('Authorization Error'))
         .finally(() => commit('request_status', false))        
