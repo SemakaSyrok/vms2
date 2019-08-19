@@ -42,7 +42,7 @@ const actions = {
         })
         .then(payload => {
             if(payload === null) {
-                alert('Authorization Error')
+                alert('Ошибка авторизации')
                 return;
             }
             commit('login', payload);
@@ -52,7 +52,7 @@ const actions = {
                 url: rootState.api.url
             })
         })
-        .catch(err => alert('Authorization Error'))
+            .catch(err => alert('Ошибка авторизации'))
         .finally(() => commit('request_status', false))        
     },
     logout: ({commit}) => {
@@ -62,6 +62,10 @@ const actions = {
     loginUserByStorage: ({commit, rootstate}, payload) => {
         commit('token', payload.token);
         commit('login', payload);
+        commit('connect', {
+            token: rootState.api.token,
+            url: rootState.api.url
+        })
     }
 };
 
