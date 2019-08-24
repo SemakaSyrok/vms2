@@ -8,6 +8,7 @@ const MessagesController =  require('./controllers/MessagesControlle');
 const WorkController = require('./controllers/WorkController');
 const BonusesController = require('./controllers/BonusesController');
 const NewsController = require('./controllers/NewsController');
+const ProjectController = require('./controllers/ProjectController');
 
 var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer({});
@@ -29,6 +30,7 @@ module.exports = (app) => {
     app.options('/news', NewsController.options);
     app.options('/bonuses', BonusesController.options);
     app.options('/benefit', BenefitController.options);
+    app.options('/project', ProjectController.options);
     app.options('/api/cameras', CameraController.options);
     app.options('/api/questions', QuestionController.options);
     app.options('/api/benefits', BenefitController.options);
@@ -65,6 +67,7 @@ module.exports = (app) => {
     app.get('/api/works', WorkController.getWorks);
     app.get('/api/news', NewsController.getNews);
     app.get('/api/bonuses', BonusesController.getBonuses);
+    app.get('/api/project', ProjectController.getUserProject);
 
 
     //users
@@ -128,4 +131,14 @@ module.exports = (app) => {
     app.get('/work/:id', WorkController.getWork);
     app.delete('/work/:id', WorkController.deleteWork);
     app.delete('/work/:id/delete-image/:img', WorkController.DeleteWorkImage);
+
+
+    //project
+    app.post('/project', ProjectController.newProject);
+    app.get('/projects', ProjectController.getProjects);
+    app.get('/project/:id', ProjectController.getProject);
+    app.put('/project/:id', ProjectController.UpdateProject);
+    app.post('/project/:id/image', ProjectController.UploadProjectImage);
+    app.delete('/project/:id/delete-image/:img', ProjectController.DeleteProjectImage);
+    app.delete('/project/:id', ProjectController.deleteProject);
 };

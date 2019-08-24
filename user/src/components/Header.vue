@@ -20,6 +20,12 @@
                         </li>
                         <li>
                             <p class="nav-link"
+                                         @click="goto('project')"
+                                         :class=" activeLink('/project')"
+                            >Мой проект</p>
+                        </li>
+                        <li>
+                            <p class="nav-link"
                                @click="goto('chat/' + id())"
                                :class=" activeLink('/chat')"
                             >Чат</p>
@@ -68,11 +74,12 @@
             </div>
         </div>
     </div>
+    <div class="loading-bar" v-if="this.$store.getters.REQUEST">
+            <div class="loading-elem"></div>
+    </div>
 </nav>
 
-        <div class="loading-bar" v-if="this.$store.getters.REQUEST">
-            <div class="loading-elem"></div>
-        </div>
+        
     </span>
 </template>
 
@@ -253,8 +260,8 @@
     .menu-wrap .menu > div {
         background: rgba(52, 58, 64, 0.91);
         border-radius: 50%;
-        width: 200vw;
-        height: 200vw;
+        width: 220vw;
+        height: 220vw;
         display: flex;
         flex: none;
         align-items: center;

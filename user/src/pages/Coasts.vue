@@ -6,8 +6,13 @@
         v-for="(coast, idx) in coasts" 
         :key=idx>
             <div class="row my-2 px-2 justify-content-between">
-                <h6 class="">{{ coast.name}} </h6>
-                <h6 class="">{{ coast.coast}} руб</h6>
+                <div class="col-7">
+                    <h6 class="">{{ coast.name}} </h6>
+                </div>
+                <div class="col-5 text-right">
+                    <h6 class="text-right">{{ coast.coast}} руб</h6>
+                </div>
+                <hr>
             </div>
         </div>
     </div>

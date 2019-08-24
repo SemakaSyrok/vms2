@@ -12,11 +12,12 @@ module.exports = (app, bodyParser) => {
     app.use('/static1', express.static(__dirname + '/client/dist/static1'));
     app.use('/static', express.static(__dirname + '/user/dist/static'));
     app.use('/uploads', express.static(__dirname + '/uploads'));
+    app.use('/steps', express.static(__dirname + '/steps'));
     app.use('/sw.js', express.static(__dirname + '/sw.js'));
 
     app.use('/', function (req, res, next) {
 
-        if(req.headers.method === 'options') {
+        if(req.headers.method === 'OPTIONS') {
             res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
             res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
             res.setHeader('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET');
@@ -199,5 +200,42 @@ module.exports = (app, bodyParser) => {
             })
             .catch(err => res.sendStatus(400))
     });
+
+    app.use("/project*", function (req, res, next) {
+        if (req.method === "OPTIONS") {
+            res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+            res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+            res.setHeader('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, PATCH');
+            res.setHeader('Access-Control-Allow-Credentials', true);
+            res.sendStatus(200)
+            return;
+        }
+        User.findOne({
+            where: {
+                token: req.headers.authorization
+            }
+        }).then(user => {
+            if (user.is_admin === 1 || req.method === 'GET')
+                next()
+            else
+                res.sendStatus(401)
+        }).catch(err => res.sendStatus(400))
+    });
+
+    // app.use('/api*', (req, res, next) => {
+    //     User.findOne({
+    //         where: {
+    //             token: req.headers.authorization
+    //         }
+    //     }).then((user) => {
+    //         console.log('aaaaaaaaaaaaaaaaaa')
+    //         req.ctx.user = user;
+    //         console.log(req.ctx)
+    //         next()
+    //     }).catch((err) => {
+    //         res.sendStatus(401)
+    //     })
+    // })
+
 
 };

@@ -1,19 +1,21 @@
 <template>
-    <div class="wrapper p-1">
+    <div class="wrapper container">
         <h1>Камеры</h1>
         <button class="btn btn-primary" @click="openCamera()">Добавить камеру</button>
         <hr class="mb-1">
 
         <div class="users d-flex justify-content-start flex-wrap">
-            <div class="user card shadow-sm m-2 p-2 col-sm-12 col-md-5 col-lg-4 col-xl-3"
+            <div class="user   p-2 col-sm-12 col-md-5 col-lg-4 col-xl-3"
                  v-for="(camera, idx) in cameras" :key="idx">
-                <h3>{{camera.name}}</h3>
-                <hr>
-                <h4>Url: <span class="bg-light">{{camera.connection_string}}</span></h4>
-                <h4>ID Пользователя: {{ camera.owner_id }}</h4>
-                <div class=" my-1">
-                    <button class="btn btn-warning" @click="openUpdateCamera(camera.id)">Изменить</button>
-                    <button class="btn btn-danger" @click="deleteCamera(camera.id)">Удалить</button>
+                <div class="card shadow-sm p-1">
+                    <h3>{{camera.name}}</h3>
+                    <hr>
+                    <h4>Url: <span class="bg-light">{{camera.connection_string}}</span></h4>
+                    <h4>ID Пользователя: {{ camera.owner_id }}</h4>
+                    <div class=" my-1">
+                        <button class="btn btn-warning" @click="openUpdateCamera(camera.id)">Изменить</button>
+                        <button class="btn btn-danger" @click="deleteCamera(camera.id)">Удалить</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,16 +34,20 @@
                         <form>
                             <div class="form-group">
                                 <label for="url">Строка подключения</label>
-                                <input type="text" id="url" v-model="newCamera.connection_string" class="form-control">
+                                <input type="text" id="url"  v-model="newCamera.connection_string" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="port">Имя</label>
-                                <input type="text" id="port" v-model="newCamera.name" class="form-control">
+                                <input type="text" id="port"  v-model="newCamera.name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="select">Пользователь</label>
-                                <select class="form-control" id="select" v-model="newCamera.owner_id">
-                                    <option v-for="(user, idx) in this.$store.getters.SIMPLE_USERS"
+                                <select 
+                                    class="form-control" 
+                                    id="select" 
+                                    v-model="newCamera.owner_id"
+                                >
+                                    <option v-for="(user, idx) in $store.getters.SIMPLE_USERS"
                                             v-bind:value="user.id">
                                         {{ user.login }}
                                     </option>
@@ -84,7 +90,7 @@
                             <div class="form-group">
                                 <label for="select_">Пользователь</label>
                                 <select class="form-control" id="select_" v-model="updatedCamera.owner_id">
-                                    <option v-for="(user, idx) in this.$store.getters.SIMPLE_USERS"
+                                    <option v-for="(user, idx) in $store.getters.SIMPLE_USERS"
                                             v-bind:value="user.id">
                                         {{ user.login }}
                                     </option>
@@ -159,7 +165,7 @@
                 this.updatedCamera.error = '';
             },
             async saveCamera() {
-                this.newCamera.error = '';
+                this.validate_camera();
 
                 if (this.newCamera.error)
                     return;
@@ -171,6 +177,15 @@
                     });
                     await this.$store.dispatch('camerasRequest')
                 }
+            },
+            validate_camera() {
+                let error = null;
+
+                if(this.newCamera.connection_string.length <= 4) error = 'Строка подключения слишком мала';
+                if(this.newCamera.name.length <= 4) error = 'Имя слишком маленькое';
+                if(!this.newCamera.owner_id) error = 'Пользователь не выбран';
+
+                this.newCamera.error = error;
             },
             async updateCamera(id) {
                 this.updatedCamera.error = ValidateService.validateCamera(this.updatedCamera);

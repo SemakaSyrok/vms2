@@ -11,6 +11,8 @@ import News from "../pages/News";
 import Unswers from "../pages/Unswers";
 import Works from "../pages/Works";
 import Work from "../pages/Work";
+import Video from "../pages/Video";
+
 import { store } from "@/store/index";
 
 Vue.use(Router);
@@ -22,7 +24,11 @@ export default new  Router({
             path: '/login',
             name: 'login',
             component: Login,
-
+        },
+        {
+            path: '/video/:path',
+            name: 'video',
+            component: Video,
         },
         {
             path: '/coasts',

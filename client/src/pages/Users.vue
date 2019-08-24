@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper" class="p-1">
+    <div id="wrapper" class="container">
         <h1>Пользователи</h1>
         <button class="btn btn-primary" id="btn" data-toggle="modal" @click="openModal()">
             Добавить пользователя
@@ -8,17 +8,19 @@
         <hr>
 
         <div class="users d-flex justify-content-start flex-wrap">
-            <div class="user card shadow-sm m-2 p-2 col-sm-12 col-md-5 col-lg-4 col-xl-3" v-for="(user, idx) in users"
+            <div class="user p-1 col-sm-12 col-md-5 col-lg-4 col-xl-3" v-for="(user, idx) in users"
                  :key="idx">
-                <h3>{{user.name}}</h3>
-                <hr>
-                <h4>Логин: {{user.login}}</h4>
-                <h4>Пароль: {{user.pass}}</h4>
-                <h4>ID: {{user.id}}</h4>
-                <h4>{{user.is_admin ? 'Админ' : 'Не админ'}}</h4>
-                <div class=" my-1">
-                    <button class="btn btn-warning" @click="openUpdate(user.id)">Изменить</button>
-                    <button class="btn btn-danger" @click="deleteUser(user.id)">Удалить</button>
+                <div class="p-1 card shadow-sm">
+                    <h3>{{user.name}}</h3>
+                    <hr>
+                    <h4>Логин: {{user.login}}</h4>
+                    <h4>Пароль: {{user.pass}}</h4>
+                    <h4>ID: {{user.id}}</h4>
+                    <h4>{{user.is_admin ? 'Админ' : 'Не админ'}}</h4>
+                    <div class=" my-1">
+                        <button class="btn btn-warning" @click="openUpdate(user.id)">Изменить</button>
+                        <button class="btn btn-danger" @click="deleteUser(user.id)">Удалить</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,15 +39,27 @@
                         <form>
                             <div class="form-group">
                                 <label for="log">Логин</label>
-                                <input type="text" id="log" v-model="newUser.login" class="form-control">
+                                <input type="text" id="log" 
+                                    v-model="newUser.login" 
+                                    class="form-control"
+                                    @input="validate_user()"
+                                >
                             </div>
                             <div class="form-group">
                                 <label for="name">Имя</label>
-                                <input type="text" id="name" v-model="newUser.name" class="form-control">
+                                <input type="text" id="name" 
+                                    v-model="newUser.name" 
+                                    class="form-control"
+                                    @input="validate_user()"
+                                >
                             </div>
                             <div class="form-group">
                                 <label for="pass">Пароль</label>
-                                <input type="text" id="pass" v-model="newUser.password" class="form-control">
+                                <input type="text" id="pass" 
+                                    v-model="newUser.password" 
+                                    class="form-control"
+                                    @input="validate_user()"    
+                                >
                             </div>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" v-model="newUser.is_admin"
@@ -54,7 +68,7 @@
                                     Это администратор?
                                 </label>
                             </div>
-                            <div class="alert alert-danger my-2" v-if="newUser.error">
+                            <div class="alert alert-danger my-2" v-show="newUser.error">
                                 {{ newUser.error }}
                             </div>
                         </form>
@@ -115,7 +129,7 @@
 <script>
     import $ from 'jquery';
     import 'bootstrap/dist/js/bootstrap.min.js';
-    import ValidateService from '../services/ValidateService'
+import { setTimeout } from 'timers';
 
     export default {
         name: "Users",
@@ -134,7 +148,7 @@
                     password: 'a',
                     name: '',
                     is_admin: false,
-                    error: ''
+                    error: null
                 }
             }
         },
@@ -150,7 +164,7 @@
         methods: {
             openModal: function () {
                 $('#exampleModal').modal('toggle');
-                this.newUser.error = '';
+                this.newUser.error = null;
             },
             openUpdate(id) {
                 $('#updateModal').modal('toggle');
@@ -165,21 +179,17 @@
                 this.updatedUser.is_admin = is_admin;
             },
             saveUser: async function () {
-                this.newUser.error = null;
-                const validateMessage = ValidateService.validateNewUser(this.newUser);
+                this.validate_user();
+                console.log(this.newUser.error);
 
-                if (validateMessage) {
-                    this.newUser.error = validateMessage;
-                    return;
-                } else {
+                if (!this.newUser.error) {
                     const res = await this.$store.dispatch('createUser', {
                         login: this.newUser.login,
                         password: this.newUser.password,
                         is_admin: this.newUser.is_admin,
                         name: this.newUser.name
                     })
-                    console.log('asdasd');
-                    console.log();
+                    
                     await this.$store.dispatch('usersRequest')
                 }
             },
@@ -192,7 +202,7 @@
             },
             async updateUser(id) {
 
-                const error = ValidateService.validateUser(this.updatedUser);
+                const error = this.validateUser(this.updatedUser);
                 console.log(error);
 
                 if (error) {
@@ -208,6 +218,69 @@
                     });
                     await this.$store.dispatch('usersRequest')
                 }
+            },
+            validateNewUser(payload) {
+                let error = null;
+                const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
+                const regular1 = /^[a-zA-Z0-9]+$/ig;
+
+                if (payload.login.length <= 6) error = 'Логин слишком маленький';
+                if (payload.login.length >= 32) error = 'Логин слишком большой';
+                if (payload.password.length <= 6) error = 'Пароль слишком маленький';
+                if (payload.password.length >= 32) error = 'Пароль слишком большой';
+                if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
+                if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
+
+                return error;
+            },
+            validateUser(payload) {
+                let error = null;
+                const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
+                const regular1 = /^[a-zA-Z0-9]+$/ig;
+
+                if (payload.login.length <= 6) error = 'Логин слишком маленький';
+
+                if (payload.login.length >= 32) error = 'Логин слишком большой';
+                if (payload.password.length <= 6) error = 'Пароль слишком маленький';
+
+                if (payload.password.length >= 32) error = 'Пароль слишком большой';
+                if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
+                if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
+
+                if (this.newUser.name.length <= 3) {error = 'Имя слишком маленькое';  }
+                if (this.newUser.name.length >= 32) {error = 'Имя слишком маленькое';  }
+
+
+                return error;
+            },
+            validateCamera(payload) {
+                let error = null;
+
+                if(payload.connection_string.length <= 4) error = 'Строка подключения слишком мала';
+                if(payload.name.length <= 4) error = 'Имя слишком маленькое';
+
+                return error;
+            },
+            validate_user() {
+                let error = null;
+                const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
+                const regular1 = /^[a-zA-Z0-9]+$/ig;
+
+                if (this.newUser.login.length <= 6) {error = 'Логин слишком маленький';  }
+                if (this.newUser.login.length >= 32) {error = 'Логин слишком большой';  }
+                if (this.newUser.password.length <= 6) {error = 'Пароль слишком маленький';  }
+                if (this.newUser.password.length >= 32) {error = 'Пароль слишком большой';  }
+                if (!regular.test(this.newUser.login)) {error = 'Недопустимые символы в логине';  }
+                if (!regular1.test(this.newUser.password)) {error = 'Недопустимые символы в пароле';  }
+                if (this.newUser.name.length <= 3) {error = 'Имя слишком маленькое';  }
+                if (this.newUser.name.length >= 32) {error = 'Имя слишком маленькое';  }
+
+
+                if(error)  
+                    this.newUser.error = error;
+                else
+                    this.newUser.error = null;
+
             }
 
         }

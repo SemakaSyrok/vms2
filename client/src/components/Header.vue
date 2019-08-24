@@ -72,6 +72,12 @@
                         >Полезное</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link"
+                                     to="/projects"
+                                     :class=" activeLink('/projects')"
+                        >Проекты</router-link>
+                    </li>
+                    <li class="nav-item">
                         <button class="btn btn-primary nav-link ml-lg-4 p-2" @click="logout()">Выйти</button>
                     </li>
                 </ul>

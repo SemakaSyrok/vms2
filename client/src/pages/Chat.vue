@@ -17,8 +17,14 @@
             </div>
         </div>
         <div class="bottom-panel">
-            <input type="text" class="bottom-input" v-model="message" >
-            <button class="bottom-btn" @click="sendMessage()">Отправить</button>
+            <div class="pos-rel">
+                <input type="text" class="bottom-input" v-model="message" >
+                <span class="words-amount">{{message_length}}/254</span>
+            </div>
+            
+            <div class="btn-block">
+                <button class="bottom-btn" @click="sendMessage()">Отправить</button>
+            </div>
         </div>
     </div>
 </template>
@@ -43,6 +49,9 @@ import { log } from 'util';
             }
         },
         computed: {
+            message_length() {
+                return this.message.length;
+            },
             messages() {
                 return this.$store.getters.MESSAGES;
             },
@@ -55,6 +64,11 @@ import { log } from 'util';
         },
         methods: {
             sendMessage() {
+                if(this.message.length > 254) {
+                    alert('Сообщение слишком большое!')
+                    return;
+                }
+
                 this.$store.dispatch('sendMessage', this.message);
                 this.message = '';
             },
@@ -109,6 +123,19 @@ import { log } from 'util';
 </script>
 
 <style scoped>
+    .words-amount{
+        position: absolute;
+        right: 37%;
+        top: 5px;
+    }   
+    .pos-rel{
+        width: 65%;
+        float:left;
+    }
+    .btn-block{
+        width: 35%;
+        float:left;
+    }
     .pt-72{
         padding-top: 72px;
     }
@@ -121,15 +148,16 @@ import { log } from 'util';
         padding: 2px;
         min-height: 72px;
         background: #fff;
+        display: inline;
     }
     .bottom-input{
-        width: 70%;
+        width: 100%;
         min-height: 50px;
         margin: 0;
         padding: 0;
     }
     .bottom-btn {
-        width: 28%;
+        width: 100%;
         min-height: 50px;
         margin: 0;
         padding: 0;

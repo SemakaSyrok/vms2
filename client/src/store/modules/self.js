@@ -59,7 +59,7 @@ const actions = {
         commit('logout');
         commit('token_destroy');
     },
-    loginUserByStorage: ({commit, rootstate}, payload) => {
+    loginUserByStorage: ({commit, rootState}, payload) => {
         commit('token', payload.token);
         commit('login', payload);
         commit('connect', {

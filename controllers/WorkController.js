@@ -69,7 +69,7 @@ module.exports = {
         Work.findOne({
             where: { id: req.params.id }
         }).then(work => {
-            if (work.images.length > 0) {
+            if (work.images) {
                 for (let i = 0; i < work.images.length; i++) {
                     try {
                         fs.unlinkSync('./uploads/' + work.images[i]);

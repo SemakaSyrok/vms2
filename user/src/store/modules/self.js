@@ -56,7 +56,8 @@ const actions = {
     },
     logout: ({commit}) => {
         commit('logout');
-        commit('token_destroy');//перевести все и настроить бд добавить домен и https
+        commit('token_destroy');
+        commit('request_status', false)
     },
     loginUserByStorage: ({commit, rootState, dispatch}, payload) => {
         commit('token', payload.token);

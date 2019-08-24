@@ -14,6 +14,10 @@ import Works from "../pages/Works";
 import Work from "../pages/Work";
 import News from "../pages/News";
 import Bonuses from "../pages/Bonuses";
+import Projects from "../pages/Projects";
+import Project from "../pages/Project";
+
+
 
 import { store } from "@/store/index";
 
@@ -26,6 +30,16 @@ export default new Router({
             path: '/',  
             name: 'home',
             component: Home,
+        },
+        {
+            path: '/projects',
+            name: 'projects',
+            component: Projects,
+        },
+        {
+            path: '/project/:id',
+            name: 'project',
+            component: Project,
         },
         {
             path: '/works',

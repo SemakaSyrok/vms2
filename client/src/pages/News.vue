@@ -7,6 +7,10 @@
                     <input type="text" v-model="newest" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label for="question">Ссылка</label>
+                    <input type="text" v-model="link" id="question" name="question" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="description">Описание</label>
                     <textarea type="text" v-model="description" rows="3" id="description" name="description" class="form-control">
 
@@ -33,6 +37,10 @@
                                 <div class="form-group">
                                     <label for="name">Вопрос</label>
                                     <input type="text" v-model="ne.news" name="question" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Ссылка</label>
+                                    <input type="text" v-model="ne.link" name="question" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="coast">Ответ</label>
@@ -73,6 +81,7 @@
             return {
                 newest: '',
                 description: '',
+                link: '',
                 news: []
             }
         },
@@ -85,7 +94,8 @@
                 try {
                     const response = await axios.post(this.$store.getters.API.url + '/news', {
                         news: this.newest,
-                        description: this.description
+                        description: this.description,
+                        link: this.link
                     }, {
                         headers: {
                             'Content-Type': 'application/json',
@@ -97,10 +107,11 @@
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     alert('Ошибка добавления новинки');
-                    this.$store.commit('request_status', true);
+                    this.$store.commit('request_status', false);
                 }
                 this.newest = '';
                 this.description = '';
+                this.link = '';
             },
             async getQuestions() {
                 this.$store.commit('request_status', true);
@@ -141,7 +152,8 @@
                 try {
                     const response = await axios.put(this.$store.getters.API.url + '/news/' + id, {
                         news: this.news.find(news => news.id === id).news,
-                        description: this.news.find(news => news.id === id).description
+                        description: this.news.find(news => news.id === id).description,
+                        link: this.news.find(news => news.id === id).link
                     },{
                         headers: {
                             'Content-Type': 'application/json',

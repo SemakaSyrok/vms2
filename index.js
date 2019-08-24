@@ -10,6 +10,7 @@ const Message = require("./models/message");
 const Work = require("./models/work");
 const News = require("./models/news");
 const Bonuses = require("./models/bonus");
+const Project = require("./models/project")
 
 const app = require('express')();
 const bodyParser = require('body-parser');
@@ -17,21 +18,42 @@ const sequelize = require('sequelize');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-
+//PROJECT
 
 db.sync({force: false}).then(() => {
 
     // User.create({
+    //     id: 1,
     //     login:'abminadmin',
     //     pass: 'Passw0rd',
     //     name: 'Simon',
     //     is_admin: 1,
-    //     token: ''
+    //     token: '1'
+    // })
 
+    // User.create({
+    //     id: 2,
+    //     login: 'simonsimon',
+    //     pass: '6f481be',
+    //     name: 'User',
+    //     is_admin: 0,
+    //     token: '2'
+    // })
+
+    // Camera.create({
+    //     name: 'Камера1',
+    //     owner_id: 2,
+    //     connection_string: 'http://217.197.157.7:7070/axis-cgi/mjpg/video.cgi?camera=1'
+    // })
+
+    // Camera.create({
+    //     name: 'Камера2',
+    //     owner_id: 2,
+    //     connection_string: 'http://meteobunyol.axiscam.net:9000/mjpg/video.mjpg'
     // })
 
 });
-// sequelize.sync()
+ //sequelize.sync()
 
 require('./usages')(app, bodyParser);
 require('./routes')(app);
@@ -71,8 +93,6 @@ io.on('connection', (socket) => {
     socket.on('createRoom', (room) => {
        socket.join(room);
        socket.room = room;
-       // console.log(`user ${socket.user.name} join ${room} room`);
-        //TODO: Зарегать компонент соообщение
     });
 
     socket.on('leaveRoom', (room) => {

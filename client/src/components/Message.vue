@@ -66,4 +66,8 @@
         border-radius: 0 6px 6px 6px;
     }
 
+    p {
+        word-break: break-all;
+    }
+
 </style>

@@ -5,8 +5,8 @@
 
         <hr>
 
-        <div class="row justify-content-between px-2" v-for="(benefit, idx) in benefits" :key="idx" >
-            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6 p-2">
+        <div class="row d-flex flex-column align-items-center justify-content-between px-2"  >
+            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6 p-2" v-for="(benefit, idx) in benefits" :key="idx">
                 <div class="card">
                     <div class="card-title border-bottom">
                         <h4 class=" px-2 pt-2">{{ benefit.question }}</h4>
@@ -42,11 +42,11 @@
                 })
                 .then(res => {
                     this.benefits = res.data;
-                    this.$store.commit('request_status', true);
+                    this.$store.commit('request_status', false);
                 })
                 .catch(err => {
                     alert('Ошибка получения полезной информации')
-                    this.$store.commit('request_status', true);    
+                    this.$store.commit('request_status', false);    
                 })
             }
         },

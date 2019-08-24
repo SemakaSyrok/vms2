@@ -17,6 +17,8 @@ export default class ValidateService {
         if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
         if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
 
+        console.log('validator : ' + error);
+
         return error;
     }
 
@@ -33,6 +35,8 @@ export default class ValidateService {
         if (payload.password.length >= 32) error = 'Пароль слишком большой';
         if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
         if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
+
+        
 
         return error;
     }

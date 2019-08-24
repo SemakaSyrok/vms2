@@ -4,7 +4,7 @@ const News = require('../models/news');
 module.exports = {
     getNews(req, res) {
         News.findAll({
-            attributes: ["id", 'news', "description",]
+            attributes: ["id", 'news', "description", "link"]
         }).then(News =>
             res.status(200).send(News)
         ).catch(err =>
@@ -16,6 +16,7 @@ module.exports = {
         News.create({
             news: req.body.news,
             description: req.body.description,
+            link: req.body.link
         }).then(News =>
             res.status(200).send(News)
         ).catch(err =>
@@ -35,11 +36,12 @@ module.exports = {
         News.update({
             description: req.body.description,
             news: req.body.news,
+            link: req.body.link
         }, {
-                where: { id: req.params.id },
-            }).then((isUpdated) => {
-                isUpdated ? res.sendStatus(200) : res.sendStatus(400)
-            }).catch((err) => res.sendStatus(401))
+            where: { id: req.params.id },
+        }).then((isUpdated) => {
+            isUpdated ? res.sendStatus(200) : res.sendStatus(400)
+        }).catch((err) => res.sendStatus(401))
     },
 
     options(req, res) {

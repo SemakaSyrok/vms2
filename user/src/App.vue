@@ -3,6 +3,7 @@
         <div id="wrapper">
             <Header/>
             <div class="divider"></div>
+            <img src="@/assets/main-bg.jpg" id="bg" alt="">
             <router-view/>
         </div>
         <Footer/>
@@ -61,6 +62,16 @@
     }
     #wrapper{
         min-height: 95vh;
+    }
+    #bg{
+        position: fixed;
+        z-index: -999;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        -webkit-filter: opacity(.85);
+        filter: opacity(.85);
+        object-fit: cover;
     }
     .divider{
         margin-top: 60px;

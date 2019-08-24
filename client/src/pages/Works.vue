@@ -41,11 +41,11 @@
                         <div class="p-1">
                             <form class="card p-2">
                                 <div class="form-group">
-                                    <label for="question">Вопрос</label>
+                                    <label for="question">Название</label>
                                     <input type="text" v-model="work.name" name="question" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="unswer">Ответ</label>
+                                    <label for="unswer">Описание</label>
                                     <textarea type="text" v-model="work.desc" name="unswer" class="form-control">
 
                                     </textarea>

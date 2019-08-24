@@ -56,11 +56,11 @@
                 })
                 .then(res => {
                     this.works = res.data;
-                    this.$store.commit('request_status', true);
+                    this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Error reciving works')
-                    this.$store.commit('request_status', true);    
+                    alert('Ошибка получения работ')
+                    this.$store.commit('request_status', false);    
                 })
                 
             }
