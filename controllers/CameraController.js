@@ -9,6 +9,14 @@ proxy.on('error', function (err, req, res) {
 });
 
 module.exports = {
+    SimpleProxy() {
+        req.url = req.url.replace('/proxy/', '');
+
+        proxy.web(req, res, {
+            target: req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]
+        });
+    },
+
     ProxyUser(req, res) {
         Camera.findOne({
             where: {

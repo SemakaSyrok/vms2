@@ -40,13 +40,7 @@ module.exports = (app) => {
         res.sendFile(__dirname + '/user/dist/index.html');
     });
 
-    app.get('/proxy/*', function (req, res) {
-        req.url = req.url.replace('/proxy/', '');
-
-        proxy.web(req, res, {
-            target: req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]
-        });
-    });
+    app.get('/proxy/*', CameraController.SimpleProxy);
 
     app.get('/proxy-user/:id/:token', CameraController.ProxyUser);
 
