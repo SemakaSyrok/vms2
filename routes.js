@@ -10,13 +10,7 @@ const BonusesController = require('./controllers/BonusesController');
 const NewsController = require('./controllers/NewsController');
 const ProjectController = require('./controllers/ProjectController');
 
-var httpProxy = require('http-proxy');
-var proxy = httpProxy.createProxyServer({});
 
-proxy.on('error', function (err, req, res) {
-    console.log('proxy error');
-    console.log(err); console.log();
-});
 
 const path = require('path');
 
@@ -53,6 +47,8 @@ module.exports = (app) => {
             target: req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]
         });
     });
+
+    app.get('/proxy-user/:id/:token', CameraController.ProxyUser);
 
     app.get('/admin', (req, res) => {
         res.setHeader('Upgrade-Insecure-Requests', 0);

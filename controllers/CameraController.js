@@ -1,7 +1,45 @@
 const Camera = require('../models/camera');
 const User = require('../models/user');
+var httpProxy = require('http-proxy');
+var proxy = httpProxy.createProxyServer({});
+
+proxy.on('error', function (err, req, res) {
+    console.log('proxy error');
+    console.log(err); console.log();
+});
 
 module.exports = {
+    ProxyUser(req, res) {
+        Camera.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((camera) => {
+            User.findOne({
+                where: {
+                    token: req.params.token
+                }
+            }).then((user) => {
+                if(user.id === camera.owner_id) {
+                    req.url = camera.connection_string;
+                    console.log('asdasdasd');
+                    console.log(req.url);
+                    console.log(req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]);
+
+                    proxy.web(req, res, {
+                        target: req.url.match(/[https]+:\/\/[\d.:a-zA-Z\-1-9]+/gi)[0]
+                    });
+                }
+            }).catch((err) => {
+                console.log(err);
+                res.sendStatus(401)
+            })
+        }).catch((err) => {
+            console.log(err);
+            res.sendStatus(404)
+        })
+    },
+
     getCameras(req, res) {
         Camera.findAll({
             attributes: ["connection_string", 'name', "owner_id", 'id']
@@ -17,7 +55,7 @@ module.exports = {
             where: {token: req.headers.authorization}
         }).then(user => {
             Camera.findAll({
-                attributes: ["connection_string", 'name', 'id'],
+                attributes: [ 'name', 'id'],
                 where: { owner_id : user.id}
             }).then(cameras => {
                 res.status(200).send(cameras)

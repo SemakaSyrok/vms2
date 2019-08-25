@@ -3,7 +3,7 @@
         <button class="btn btn-primary mt-2 mb-1" @click="getCameras()">Получить видео</button>
         <span v-if="camera()">
             <h3> {{ camera().name }}</h3>
-            <img :src="$store.getters.API.url + '/proxy/'+camera().connection_string"
+            <img :src="api.url + '/proxy-user/'+camera().id+'/'+api.token"
                  id="camera"
                  class="d-block mx-auto img-fluid"
                  alt="">
@@ -25,7 +25,11 @@
                 height: 300,
             }
         },
-        computed: {},
+        computed: {
+            api() {
+                return this.$store.getters.API;
+            }
+        },
         beforeCreate: function () {
             if (this.$store.getters.SELF.logged === false) this.$router.push('login');
         },
