@@ -18,7 +18,7 @@ const actions = {
             }
         }).then(res => res.status === 200 ? res.json() : null)
         .then(payload => commit('renewCameras', payload))
-        .catch(err => alert('Ошибка получения данных камер'))
+        .catch(err => alert('Error receiving cameras'))
         .finally(() => commit('request_status', false))
     },
     createCamera: async ({state, rootState, commit}, payload) => {
@@ -36,9 +36,9 @@ const actions = {
                 owner_id: payload.owner_id
             })
         }).then(res =>
-            res.status !== 200 ? alert('Ошибка добавления') : alert('Камера добавлена')
+            res.status !== 200 ? alert('Error') : alert('Success')
         ).catch(err =>
-            alert('Ошибка добавления')
+            alert('Error')
         ).finally(() => commit('request_status', false))
     },
     deleteCamera: async ({state, rootState, commit}, payload) => {
@@ -54,9 +54,9 @@ const actions = {
                 id: payload
             })
         }).then(res =>
-            res.status !== 200 ? alert('Ошибка удаления') : alert('Камера удалена')
+            res.status !== 200 ? alert('Error') : alert('Success')
         ).catch(err =>
-            alert('Ошибка удаления')
+            alert('Error')
         ).finally(() =>
             commit('request_status', false)
         )
@@ -77,9 +77,9 @@ const actions = {
                 owner_id: payload.owner_id
             })
         }).then(res =>
-            res.status !== 200 ? alert('Ошибка обновления') : alert('Камера обновлена')
+            res.status !== 200 ? alert('Error') : alert('Success')
         ).catch(err =>
-            alert('Ошибка обновления')
+            alert('Error')
         ).finally(() =>
             commit('request_status', false)
         )

@@ -1,8 +1,8 @@
 <template>
     <div id="wrapper" class="container">
-        <h1>Пользователи</h1>
+        <h1>Users</h1>
         <button class="btn btn-primary" id="btn" data-toggle="modal" @click="openModal()">
-            Добавить пользователя
+            Add user
         </button>
 
         <hr>
@@ -13,13 +13,13 @@
                 <div class="p-1 card shadow-sm">
                     <h3>{{user.name}}</h3>
                     <hr>
-                    <h4>Логин: {{user.login}}</h4>
-                    <h4>Пароль: {{user.pass}}</h4>
+                    <h4>Login: {{user.login}}</h4>
+                    <h4>Password: {{user.pass}}</h4>
                     <h4>ID: {{user.id}}</h4>
                     <h4>{{user.is_admin ? 'Админ' : 'Не админ'}}</h4>
                     <div class=" my-1">
-                        <button class="btn btn-warning" @click="openUpdate(user.id)">Изменить</button>
-                        <button class="btn btn-danger" @click="deleteUser(user.id)">Удалить</button>
+                        <button class="btn btn-warning" @click="openUpdate(user.id)">Change</button>
+                        <button class="btn btn-danger" @click="deleteUser(user.id)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Создать пользователя</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">New user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,7 +38,7 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="log">Логин</label>
+                                <label for="log">Login</label>
                                 <input type="text" id="log" 
                                     v-model="newUser.login" 
                                     class="form-control"
@@ -46,7 +46,7 @@
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="name">Имя</label>
+                                <label for="name">User</label>
                                 <input type="text" id="name" 
                                     v-model="newUser.name" 
                                     class="form-control"
@@ -54,7 +54,7 @@
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="pass">Пароль</label>
+                                <label for="pass">Password</label>
                                 <input type="text" id="pass" 
                                     v-model="newUser.password" 
                                     class="form-control"
@@ -65,7 +65,7 @@
                                 <input type="checkbox" class="custom-control-input" v-model="newUser.is_admin"
                                        id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1">
-                                    Это администратор?
+                                    Admin?
                                 </label>
                             </div>
                             <div class="alert alert-danger my-2" v-show="newUser.error">
@@ -74,7 +74,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="saveUser()">Создать</button>
+                        <button type="button" class="btn btn-primary" @click="saveUser()">Create</button>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="updateModalLabel">Обновить пользователя</h5>
+                        <h5 class="modal-title" id="updateModalLabel">Update user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -93,22 +93,22 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="log">Логин</label>
+                                <label for="log">Login</label>
                                 <input type="text" id="log1" v-model="updatedUser.login" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="name">Имя</label>
+                                <label for="name">Name</label>
                                 <input type="text" id="name1" v-model="updatedUser.name" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="pass1">Пароль</label>
+                                <label for="pass1">Password</label>
                                 <input type="text" id="pass1" v-model="updatedUser.password" class="form-control">
                             </div>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" v-model="updatedUser.is_admin"
                                        id="customCheck12">
                                 <label class="custom-control-label" for="customCheck12">
-                                    Это администратор?
+                                    Admin?
                                 </label>
                             </div>
                             <div class="alert alert-danger my-2" v-if="updatedUser.error">
@@ -117,7 +117,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="updateUser(updatedUser.id)">Обновить</button>
+                        <button type="button" class="btn btn-primary" @click="updateUser(updatedUser.id)">Update</button>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,6 @@ import { setTimeout } from 'timers';
             },
             saveUser: async function () {
                 this.validate_user();
-                console.log(this.newUser.error);
 
                 if (!this.newUser.error) {
                     const res = await this.$store.dispatch('createUser', {
@@ -203,7 +202,6 @@ import { setTimeout } from 'timers';
             async updateUser(id) {
 
                 const error = this.validateUser(this.updatedUser);
-                console.log(error);
 
                 if (error) {
                     this.updatedUser.error = error;
@@ -224,12 +222,12 @@ import { setTimeout } from 'timers';
                 const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
                 const regular1 = /^[a-zA-Z0-9]+$/ig;
 
-                if (payload.login.length <= 6) error = 'Логин слишком маленький';
-                if (payload.login.length >= 32) error = 'Логин слишком большой';
-                if (payload.password.length <= 6) error = 'Пароль слишком маленький';
-                if (payload.password.length >= 32) error = 'Пароль слишком большой';
-                if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
-                if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
+                if (payload.login.length <= 6) error = 'Login to short';
+                if (payload.login.length >= 32) error = 'Login to long';
+                if (payload.password.length <= 6) error = 'Password to short';
+                if (payload.password.length >= 32) error = 'Password to long';
+                if (!regular.test(payload.login)) error = 'Invalid charecters at login';
+                if (!regular1.test(payload.password)) error = 'Invalid charecters at password';
 
                 return error;
             },
@@ -238,17 +236,17 @@ import { setTimeout } from 'timers';
                 const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
                 const regular1 = /^[a-zA-Z0-9]+$/ig;
 
-                if (payload.login.length <= 6) error = 'Логин слишком маленький';
+                if (payload.login.length <= 6) error = 'Login to short';
 
-                if (payload.login.length >= 32) error = 'Логин слишком большой';
-                if (payload.password.length <= 6) error = 'Пароль слишком маленький';
+                if (payload.login.length >= 32) error = 'Login to long';
+                if (payload.password.length <= 6) error = 'Password to short';
 
-                if (payload.password.length >= 32) error = 'Пароль слишком большой';
-                if (!regular.test(payload.login)) error = 'Недопустимые символы в логине';
-                if (!regular1.test(payload.password)) error = 'Недопустимые символы в пароле';
+                if (payload.password.length >= 32) error = 'Password to long';
+                if (!regular.test(payload.login)) error = 'Invalid charecters at login';
+                if (!regular1.test(payload.password)) error = 'Invalid charecters at password';
 
-                if (this.newUser.name.length <= 3) {error = 'Имя слишком маленькое';  }
-                if (this.newUser.name.length >= 32) {error = 'Имя слишком маленькое';  }
+                if (this.newUser.name.length <= 3) {error = 'Name to short';  }
+                if (this.newUser.name.length >= 32) {error = 'Name to long';  }
 
 
                 return error;
@@ -256,8 +254,8 @@ import { setTimeout } from 'timers';
             validateCamera(payload) {
                 let error = null;
 
-                if(payload.connection_string.length <= 4) error = 'Строка подключения слишком мала';
-                if(payload.name.length <= 4) error = 'Имя слишком маленькое';
+                if(payload.connection_string.length <= 4) error = 'Connection string to short';
+                if(payload.name.length <= 4) error = 'Nmae to short';
 
                 return error;
             },
@@ -266,14 +264,14 @@ import { setTimeout } from 'timers';
                 const regular = /^[a-zA-Z][a-zA-Z0-9]+$/ig;
                 const regular1 = /^[a-zA-Z0-9]+$/ig;
 
-                if (this.newUser.login.length <= 6) {error = 'Логин слишком маленький';  }
-                if (this.newUser.login.length >= 32) {error = 'Логин слишком большой';  }
-                if (this.newUser.password.length <= 6) {error = 'Пароль слишком маленький';  }
-                if (this.newUser.password.length >= 32) {error = 'Пароль слишком большой';  }
-                if (!regular.test(this.newUser.login)) {error = 'Недопустимые символы в логине';  }
-                if (!regular1.test(this.newUser.password)) {error = 'Недопустимые символы в пароле';  }
-                if (this.newUser.name.length <= 3) {error = 'Имя слишком маленькое';  }
-                if (this.newUser.name.length >= 32) {error = 'Имя слишком маленькое';  }
+                if (this.newUser.login.length <= 6) {error = 'Login to short';  }
+                if (this.newUser.login.length >= 32) {error = 'Login to long';  }
+                if (this.newUser.password.length <= 6) {error = 'Password to short';  }
+                if (this.newUser.password.length >= 32) {error = 'Password to long';  }
+                if (!regular.test(this.newUser.login)) {error = 'Invalid charecters at login';  }
+                if (!regular1.test(this.newUser.password)) {error = 'Invalid charecters at password';  }
+                if (this.newUser.name.length <= 3) {error = 'Name to short';  }
+                if (this.newUser.name.length >= 32) {error = 'Name to short';  }
 
 
                 if(error)  

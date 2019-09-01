@@ -22,7 +22,7 @@ const actions = {
         })
             .then(res => res.status === 200 ? res.json() : null)
             .then(payload => commit('renewUsers', payload))
-            .catch(err => alert('Ошибка получения данных пользователей'))
+            .catch(err => alert('Error receiving users data'))
             .finally(() => commit('request_status', false))
     },
     createUser: async ({state, rootState, commit}, payload) => {
@@ -41,8 +41,8 @@ const actions = {
                 name: payload.name
             })
         })
-            .then(res => res.status !== 200 ? alert('Ошибка добавления') : alert('Пользователь добавлен'))
-            .catch(err => alert('Ошибка добавления'))
+            .then(res => res.status !== 200 ? alert('Error') : alert('Success'))
+            .catch(err => alert('Error'))
             .finally(() => commit('request_status', false))
     },
     deleteUser: async ({state, rootState, commit}, payload) => {
@@ -58,9 +58,9 @@ const actions = {
                 id: payload
             })
         }).then(res =>
-            res.status !== 200 ? alert('Ошибка удаления') : alert('Пользователь удален')
+            res.status !== 200 ? alert('Error') : alert('Success')
         ).catch(err =>
-            alert('Ошибка добавления')
+            alert('Error')
         ).finally(() =>
             commit('request_status', false)
         )
@@ -82,9 +82,9 @@ const actions = {
                 name: payload.name
             })
         }).then(res =>
-            res.status !== 200 ? alert('Ошибка изменения') : alert('Пользователь изменен')
+            res.status !== 200 ? alert('Error') : alert('Success')
         ).catch(err =>
-            alert('Ошибка изменения')
+            alert('Error')
         ).finally(() =>
             commit('request_status', false)
         )

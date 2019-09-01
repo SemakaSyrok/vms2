@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>Новинки</h2>
+        <h2>New</h2>
 
         <hr>
 
@@ -15,7 +15,7 @@
                     <div class="p-1 ">
                         
                     <button class="btn btn-primary mb-1"
-                        @click="goToVideo(question.link)">Смотреть видео</button> 
+                        @click="goToVideo(question.link)">Video</button> 
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения новинок')
+                    alert('Error receiving new')
                     this.$store.commit('request_status', false);    
                 })
             },

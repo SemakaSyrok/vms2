@@ -23,7 +23,7 @@
             </div>
             
             <div class="btn-block">
-                <button class="bottom-btn" @click="sendMessage()">Отправить</button>
+                <button class="bottom-btn" @click="sendMessage()">Send</button>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@ import { log } from 'util';
         methods: {
             sendMessage() {
                 if(this.message.length > 254) {
-                    alert('Сообщение слишком большое!')
+                    alert('Massage to long')
                     return;
                 }
 
@@ -84,7 +84,7 @@ import { log } from 'util';
                     this.$store.dispatch('getMessages', response);
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка изменения');
+                    alert('Error');
                     this.$store.commit('request_status', false);
                     console.log(error);
                 }

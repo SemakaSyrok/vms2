@@ -41,7 +41,7 @@ const actions = {
         })
         .then(payload => {
             if(payload === null) {
-                alert('Ошибка авторизации')
+                alert('Authorization error')
                 return;
             }
             commit('login', payload);

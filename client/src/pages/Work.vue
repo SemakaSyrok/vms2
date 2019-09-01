@@ -3,28 +3,28 @@
         <div class="form pt-2">
             <form class="card p-2">
                 <div class="form-group">
-                    <label for="question">Название</label>
+                    <label for="question">Name</label>
                     <input type="text" v-model="work.name" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="unswer">Описание</label>
+                    <label for="unswer">Description</label>
                     <textarea type="text" v-model="work.desc" rows="5" id="unswer" name="unswer" class="form-control">
 
                     </textarea>
                 </div>
                 <div class="row">
                    <div class="form-group col-6">
-                        <label for="shir">Широта</label>
+                        <label for="shir">Latitude</label>
                         <input type="number" v-model="work.shir"  id="shir" name="shir" class="form-control">
                     </div>
                     <div class="form-group col-6">
-                        <label for="unswer">Долгота</label>
+                        <label for="unswer">Longitude</label>
                         <input type="number" v-model="work.dolg" id="dolg" name="dolg" class="form-control">
                     </div> 
                 </div>
 
                 <span class="btn btn-primary" @click="updateWork()">
-                    Обновить
+                    Update
                 </span>
             </form>
         </div>
@@ -45,9 +45,9 @@
                     </div>
                 </div>  
                 <div class="form-group">
-                    <label for="img">Выбрать картинку</label>
+                    <label for="img">Select image</label>
                     <input type="file"  id="img" name="img" class="btn btn-primary form-control">
-                    <span class="btn btn-primary mt-2" @click="uploadImage()" >Добавить картинку</span>
+                    <span class="btn btn-primary mt-2" @click="uploadImage()" >Add image</span>
                 </div>
             </form>
         </div>
@@ -97,7 +97,7 @@
                     this.work = response.data[0];
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка получения работы');
+                    alert('Error receiving works');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }
@@ -117,10 +117,10 @@
                         }
                     });
                     this.$store.commit('request_status', false);
-                    alert('Работа обновленна');
+                    alert('Success');
                     this.getWork();
                 } catch (error) {
-                    alert('Ошибка обновления работы');
+                    alert('Error');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }
@@ -137,11 +137,11 @@
                             'Authorization': this.$store.getters.API.token
                         }
                         }).then((res) => {
-                            alert('Картинка добавлена!');
+                            alert('Success');
                             this.getWork();
                             this.$store.commit('request_status', false);
                         }).catch((err) => {
-                            alert('Ошибка добавления картинки');
+                            alert('Error');
                             this.$store.commit('request_status', false);
                         });
                 }
@@ -157,10 +157,10 @@
                 .then(res => {
                     this.work.images = this.work.images.filter(image => image != img); 
                     this.$store.commit('request_status', false);
-                    alert('Картина удалена');
+                    alert('Success');
                 })
                 .catch(err => {
-                    alert('Ошибка удаления');
+                    alert('Error');
                     this.$store.commit('request_status', false);
                 })
             }

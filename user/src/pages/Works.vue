@@ -1,6 +1,6 @@
 <template>
     <div class="container pt-4">
-        <h2>Наши работы</h2>
+        <h2>Our works</h2>
 
         <hr>
 
@@ -21,7 +21,7 @@
                     <router-link 
                         class="btn btn-primary m-2"
                         v-bind:to="'/work/'+work.id" >
-                        Фотографии
+                        Photos
                     </router-link>
                     
                 </div>
@@ -59,7 +59,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения работ')
+                    alert('Error receiving works')
                     this.$store.commit('request_status', false);    
                 })
                 

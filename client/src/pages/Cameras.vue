@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper container">
-        <h1>Камеры</h1>
-        <button class="btn btn-primary" @click="openCamera()">Добавить камеру</button>
+        <h1>Cameras</h1>
+        <button class="btn btn-primary" @click="openCamera()">Add camera</button>
         <hr class="mb-1">
 
         <div class="users d-flex justify-content-start flex-wrap">
@@ -13,8 +13,8 @@
                     <h4>Url: <span class="bg-light">{{camera.connection_string}}</span></h4>
                     <h4>ID Пользователя: {{ camera.owner_id }}</h4>
                     <div class=" my-1">
-                        <button class="btn btn-warning" @click="openUpdateCamera(camera.id)">Изменить</button>
-                        <button class="btn btn-danger" @click="deleteCamera(camera.id)">Удалить</button>
+                        <button class="btn btn-warning" @click="openUpdateCamera(camera.id)">Change</button>
+                        <button class="btn btn-danger" @click="deleteCamera(camera.id)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Добавить камеру</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add camera</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -33,15 +33,15 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="url">Строка подключения</label>
+                                <label for="url">Connect string</label>
                                 <input type="text" id="url"  v-model="newCamera.connection_string" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="port">Имя</label>
+                                <label for="port">Name</label>
                                 <input type="text" id="port"  v-model="newCamera.name" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="select">Пользователь</label>
+                                <label for="select">User</label>
                                 <select 
                                     class="form-control" 
                                     id="select" 
@@ -60,7 +60,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="saveCamera()">Сохранить</button>
+                        <button type="button" class="btn btn-primary" @click="saveCamera()">Save</button>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="updateLabel">Обновить камеру</h5>
+                        <h5 class="modal-title" id="updateLabel">Update camera</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -79,16 +79,16 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="url_">Строка подключения</label>
+                                <label for="url_">Connection string</label>
                                 <input type="text" id="url_" v-model="updatedCamera.connection_string"
                                        class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="port_">Имя</label>
+                                <label for="port_">Name</label>
                                 <input type="text" id="port_" v-model="updatedCamera.name" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="select_">Пользователь</label>
+                                <label for="select_">User</label>
                                 <select class="form-control" id="select_" v-model="updatedCamera.owner_id">
                                     <option v-for="(user, idx) in $store.getters.SIMPLE_USERS"
                                             v-bind:value="user.id">
@@ -103,7 +103,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="updateCamera()">Обновить</button>
+                        <button type="button" class="btn btn-primary" @click="updateCamera()">Update</button>
                     </div>
                 </div>
             </div>
@@ -181,9 +181,9 @@
             validate_camera() {
                 let error = null;
 
-                if(this.newCamera.connection_string.length <= 4) error = 'Строка подключения слишком мала';
-                if(this.newCamera.name.length <= 4) error = 'Имя слишком маленькое';
-                if(!this.newCamera.owner_id) error = 'Пользователь не выбран';
+                if(this.newCamera.connection_string.length <= 4) error = 'Connection string to small';
+                if(this.newCamera.name.length <= 4) error = 'Name to small';
+                if(!this.newCamera.owner_id) error = 'User not chosen';
 
                 this.newCamera.error = error;
             },

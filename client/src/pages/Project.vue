@@ -5,17 +5,17 @@
             <form class="card p-2">
                 
                 <div class="form-group">
-                    <label for="name">Название</label>
+                    <label for="name">Name</label>
                     <input type="text" class="form-control" name="name" id="name" v-model="project.name">
                 </div>
 
                 <div class="form-group">
-                    <label for="percents">Выполнено на (проценты)(от 0 до 100)</label>
+                    <label for="percents">Completed (percents)(from 0 to 100)</label>
                     <input type="number" class="form-control" name="percents" id="percents" v-model="project.percents">
                 </div>
 
                 <div class="form-group">
-                    <label for="select">Пользователь</label>
+                    <label for="select">User</label>
                     <select 
                         class="form-control" 
                         id="select" 
@@ -38,7 +38,7 @@
                         id="percents" >
                     </div>
                     <div class="col-4">
-                        <span class="btn btn-primary" @click="addStep()">Добавить шаг</span>
+                        <span class="btn btn-primary" @click="addStep()">Add step</span>
                     </div>
                 </div>
 
@@ -54,11 +54,11 @@
                                     <input type="checkbox" class="form-controll" v-model="step.completed">
                                 </div>
                                 <div class="col-3 d-flex flex-column">
-                                    <span class="cursor" @click="go_top(step.number)">Вверх</span>
-                                    <span class="cursor" @click="go_botoom(step.number)">Вниз</span>
+                                    <span class="cursor" @click="go_top(step.number)">Top</span>
+                                    <span class="cursor" @click="go_botoom(step.number)">Bottom</span>
                                 </div>
                                 <div class="col-3">
-                                    <span class="cursor" @click="del_step(step.number)">Удалить</span>
+                                    <span class="cursor" @click="del_step(step.number)">Delete</span>
                                 </div>
                             </div>              
                             
@@ -67,7 +67,7 @@
                 </div>
 
                 <span class="btn btn-primary mt-4" @click="updateProject()">
-                    Обновить
+                    Update
                 </span>
 
             </form>
@@ -98,14 +98,14 @@
                                 <input type="file"  id="img" name="img" class="">
                             </div>
 
-                            <label for="description">Описание картинки</label>
+                            <label for="description">Image description</label>
                             <input type="text" class="form-control" 
                                     name="description" 
                                     id="description" 
                                     v-model="description">
 
                             <div class="col-12 p-1">
-                                <span class="btn btn-sm btn-primary mt-2" @click="uploadImage()" >Добавить картинку</span>
+                                <span class="btn btn-sm btn-primary mt-2" @click="uploadImage()" >Add image</span>
                             </div>      
                         </div>  
                 </form>  
@@ -208,7 +208,7 @@
                     this.project = response.data;
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка получения Проекта');
+                    alert('Error receiving project');
                     this.$store.commit('request_status', false);
                 }
             },
@@ -227,10 +227,10 @@
                         }
                     });
                     this.$store.commit('request_status', false);
-                    alert('Работа обновленна');
+                    alert('Success');
                     this.getProject();
                 } catch (error) {
-                    alert('Ошибка обновления работы');
+                    alert('Error');
                     this.$store.commit('request_status', false);
                 }
             },
@@ -248,11 +248,11 @@
                             'Authorization': this.$store.getters.API.token
                         }
                         }).then((res) => {
-                            alert('Картинка добавлена!');
+                            alert('Success');
                             this.getProject();
                             this.$store.commit('request_status', false);
                         }).catch((err) => {
-                            alert('Ошибка добавления картинки');
+                            alert('Error');
                             this.$store.commit('request_status', false);
                         }).finally(() => this.image_desc = '');
                 }
@@ -268,10 +268,10 @@
                 .then(res => {
                     this.project.images = this.project.images.filter(image => image.path != img); 
                     this.$store.commit('request_status', false);
-                    alert('Картина удалена');
+                    alert('Success');
                 })
                 .catch(err => {
-                    alert('Ошибка удаления');
+                    alert('Error');
                     this.$store.commit('request_status', false);
                 })
             }

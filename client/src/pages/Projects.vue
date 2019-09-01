@@ -4,11 +4,11 @@
         <div class="form pt-2">
             <form class="card p-2">
                 <div class="form-group">
-                    <label for="question">Название</label>
+                    <label for="question">Name</label>
                     <input type="text" v-model="name" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="select">Пользователь</label>
+                    <label for="select">User</label>
                     <select 
                         class="form-control" 
                         id="select"
@@ -23,7 +23,7 @@
                 
 
                 <span class="btn btn-primary" @click="addProject()">
-                    Добавить Проект
+                    Add project
                 </span>
             </form>
         </div>
@@ -31,7 +31,7 @@
         <hr class="my-4">
 
         <div class="coasts">
-            <button class="btn btn-primary" @click="getProjects()">Получить проекты</button>
+            <button class="btn btn-primary" @click="getProjects()">Get project</button>
 
             <div class="coasts row my-2">
                 <div class=" col-sm-12 col-md-6 col-lg-6 coast" v-for="(project, idx) in projects">
@@ -47,11 +47,11 @@
                                         <span 
                                             class="btn btn-warning"
                                             @click="openProject(project.id)">
-                                                Перейти к проекту
+                                                Go to project
                                         </span>
                                     </div>
                                     <div class="col-6">
-                                        <span class="btn btn-danger" @click="deleteProject(project.id)">Удалить </span>
+                                        <span class="btn btn-danger" @click="deleteProject(project.id)">Delete</span>
                                     </div>
                                 </div>
                                 
@@ -97,11 +97,11 @@
                             'Authorization': this.$store.getters.API.token
                         }
                     });
-                    alert('Проект добавлена');
+                    alert('Success');
                     this.projects.push(response.data);
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка добавления проекта');
+                    alert('Error');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }
@@ -121,7 +121,7 @@
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка получения проектов')
+                    alert('Error')
                 }
             },
             async deleteProject(id) {
@@ -134,11 +134,11 @@
                         }
                     });
                     this.projects = this.projects.filter(project => project.id !== id);
-                    alert("Удалено");
+                    alert("Success");
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка удаления')
+                    alert('Error')
                 }
 
             },

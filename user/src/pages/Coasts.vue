@@ -1,6 +1,6 @@
 <template>
     <div class="container pt-4"> 
-        <h2>Расценки</h2>
+        <h2>Pricing</h2>
         <hr>
         <div class="px-2" 
         v-for="(coast, idx) in coasts" 
@@ -10,7 +10,7 @@
                     <h6 class="">{{ coast.name}} </h6>
                 </div>
                 <div class="col-5 text-right">
-                    <h6 class="text-right">{{ coast.coast}} руб</h6>
+                    <h6 class="text-right">{{ coast.coast}} $</h6>
                 </div>
                 <hr>
             </div>
@@ -44,7 +44,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения расценок')
+                    alert('Error reseiving prices')
                     this.$store.commit('request_status', false);    
                 })
             }

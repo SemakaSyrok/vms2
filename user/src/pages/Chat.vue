@@ -23,7 +23,7 @@
             </div>
             
             <div class="btn-block">
-                <button class="bottom-btn" @click="sendMessage()">Отправить</button>
+                <button class="bottom-btn" @click="sendMessage()">Send</button>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@ import { log } from 'util';
                 if(this.message.length <= 0) return;
 
                 if(this.message.length >= 254) {
-                    alert('Длинна сообщения не более 254 символов');
+                    alert('Max message length 254 symbols');
                     return;
                 }
                 this.$store.dispatch('sendMessage', this.message);
@@ -91,7 +91,7 @@ import { log } from 'util';
                     this.$store.commit('request_status', false);
                     
                 } catch (error) {
-                    alert('Ошибка получения сообщений');
+                    alert('Error reseiving messages');
                     this.$store.commit('request_status', false);;
                 }
             },

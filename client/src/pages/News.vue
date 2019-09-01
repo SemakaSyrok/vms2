@@ -3,22 +3,22 @@
         <div class="form pt-2">
             <form class="card p-2">
                 <div class="form-group">
-                    <label for="question">Новинка</label>
+                    <label for="question">New</label>
                     <input type="text" v-model="newest" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="question">Ссылка</label>
+                    <label for="question">Link</label>
                     <input type="text" v-model="link" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="description">Описание</label>
+                    <label for="description">Description</label>
                     <textarea type="text" v-model="description" rows="3" id="description" name="description" class="form-control">
 
                     </textarea>
                 </div>
 
                 <span class="btn btn-primary" @click="addQuestion()">
-                    Добавить новинку
+                    Add
                 </span>
             </form>
         </div>
@@ -26,7 +26,7 @@
         <hr class="my-4">
 
         <div class="coasts">
-            <button class="btn btn-primary" @click="getQuestions()">Получить Новинки</button>
+            <button class="btn btn-primary" @click="getQuestions()">Get new</button>
 
             <div class="coasts row my-2">
                 <div class=" col-sm-12 col-md-6 col-lg-6 coast" v-for="(ne, idx) in news">
@@ -35,15 +35,15 @@
                         <div class="p-1">
                             <form class="card p-2">
                                 <div class="form-group">
-                                    <label for="name">Вопрос</label>
+                                    <label for="name">New</label>
                                     <input type="text" v-model="ne.news" name="question" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Ссылка</label>
+                                    <label for="name">Link</label>
                                     <input type="text" v-model="ne.link" name="question" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="coast">Ответ</label>
+                                    <label for="coast">Description</label>
                                     <textarea type="text" v-model="ne.description" name="description" class="form-control">
 
                                     </textarea>
@@ -53,10 +53,10 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <span class="btn btn-warning"
-                                                  @click="updateQuestions(ne.id)">Изменить</span>
+                                                  @click="updateQuestions(ne.id)">Change</span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="btn btn-danger" @click="deleteQuestions(ne.id)">Удалить</span>
+                                            <span class="btn btn-danger" @click="deleteQuestions(ne.id)">Delete</span>
                                         </div>
                                     </div>
                                 </div>
@@ -102,11 +102,11 @@
                             'Authorization': this.$store.getters.API.token
                         }
                     });
-                    alert('Новинка добавлена');
+                    alert('Success');
                     this.news.push(response.data);
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка добавления новинки');
+                    alert('Error');
                     this.$store.commit('request_status', false);
                 }
                 this.newest = '';
@@ -126,7 +126,7 @@
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка получения вопросов')
+                    alert('Error')
                 }
             },
             async deleteQuestions(id) {
@@ -139,11 +139,11 @@
                         }
                     });
                     this.news = this.news.filter(news => news.id !== id);
-                    alert("Удалено");
+                    alert("Success");
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка удаления')
+                    alert('Error')
                 }
 
             },
@@ -162,9 +162,9 @@
                     });
                     this.getQuestions();
                     this.$store.commit('request_status', false);
-                    alert('Данные обновлены')
+                    alert('Success')
                 } catch (error) {
-                    alert('Ошибка изменения')
+                    alert('Error')
                     this.$store.commit('request_status', false);
                 }
 

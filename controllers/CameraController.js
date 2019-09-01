@@ -9,7 +9,7 @@ proxy.on('error', function (err, req, res) {
 });
 
 module.exports = {
-    SimpleProxy() {
+    SimpleProxy(req, res) {
         req.url = req.url.replace('/proxy/', '');
 
         proxy.web(req, res, {

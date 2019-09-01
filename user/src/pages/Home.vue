@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper container-fluid">
-        <button class="btn btn-primary mt-2 mb-1" @click="getCameras()">Получить видео</button>
+        <button class="btn btn-primary mt-2 mb-1" @click="getCameras()">Get video</button>
         <span v-if="camera()">
             <h3> {{ camera().name }}</h3>
             <img :src="api.url + '/proxy-user/'+camera().id+'/'+api.token"

@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>Бонусы</h2>
+        <h2>Bonuses</h2>
 
         <hr>
 
@@ -13,7 +13,7 @@
                         <h4 class=" px-2 pt-2">{{ question.bonuses }}</h4>
                     </div>
                     <p class="px-2 pt-2">{{ question.unswer }}</p>
-                    <a :href="question.link" class="px-2 pt-2 mb-1">Узнать больше</a>
+                    <a :href="question.link" class="px-2 pt-2 mb-1">More...</a>
                     
 
                 </div>
@@ -49,7 +49,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения бонусов')
+                    alert('Error receiving bonuses')
                     this.$store.commit('request_status', false);    
                 })
             }

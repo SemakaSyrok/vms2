@@ -74,7 +74,7 @@
                     });
                     this.project = response.data;
                 } catch (err) {
-                    alert('Ошибка получения проекта')
+                    alert('Error receiving project')
                 } finally  {
                     this.$store.commit('request_status', false);
                 }     

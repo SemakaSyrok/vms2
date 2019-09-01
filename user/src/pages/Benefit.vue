@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
 
-        <h2>Полезное</h2>
+        <h2>Useful</h2>
 
         <hr>
 
@@ -45,7 +45,7 @@
                     this.$store.commit('request_status', false);
                 })
                 .catch(err => {
-                    alert('Ошибка получения полезной информации')
+                    alert('Error receiving useful infomation')
                     this.$store.commit('request_status', false);    
                 })
             }

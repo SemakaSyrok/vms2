@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
         
-        <h2>Фотографии</h2>
+        <h2>Photos</h2>
 
         <hr>
 
@@ -61,7 +61,7 @@
                     this.work = response.data[0];
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка получения выполненых работ');
+                    alert('Error recieving information');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }

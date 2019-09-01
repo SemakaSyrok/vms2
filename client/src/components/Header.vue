@@ -15,70 +15,70 @@
                         <router-link class="nav-link"
                                      to="/"
                                      :class=" activeLink('/')"
-                        >Главная</router-link>
+                        >Main</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/news"
                                      :class=" activeLink('/news')"
-                        >Новинки</router-link>
+                        >New</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/bonuses"
                                      :class=" activeLink('/bonuses')"
-                        >Бонусы</router-link>
+                        >Bonuses</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/cameras"
                                      :class=" activeLink('/cameras')"
-                        >Камеры</router-link>
+                        >Cameras</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/users"
                                      :class=" activeLink('/users')"
-                        >Пользователи</router-link>
+                        >Users</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/chats"
                                      :class=" activeLink('/chat')"
-                        >Чаты</router-link>
+                        >Chats</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/works"
                                      :class=" activeLink('/works')"
-                        >Работы</router-link>
+                        >Works</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/coasts"
                                      :class=" activeLink('/coasts')"
-                        >Расценки</router-link>
+                        >Prices</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/questions"
                                      :class=" activeLink('/questions')"
-                        >Вопрос/Ответ</router-link>
+                        >FAQ</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/benefit"
                                      :class=" activeLink('/benefit')"
-                        >Полезное</router-link>
+                        >Useful</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link"
                                      to="/projects"
                                      :class=" activeLink('/projects')"
-                        >Проекты</router-link>
+                        >Projects</router-link>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-primary nav-link ml-lg-4 p-2" @click="logout()">Выйти</button>
+                        <button class="btn btn-primary nav-link ml-lg-4 p-2" @click="logout()">Logout</button>
                     </li>
                 </ul>
 

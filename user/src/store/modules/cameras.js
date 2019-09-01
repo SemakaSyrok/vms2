@@ -21,7 +21,7 @@ const actions = {
         ).then(payload =>
             commit('renewCameras', payload)
         ).catch(err =>
-            alert('Ошибка получения данных камер')
+            alert('Error receiving information')
         ).finally(() =>
             commit('request_status', false)
         )

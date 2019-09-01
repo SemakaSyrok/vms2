@@ -3,28 +3,28 @@
         <div class="form pt-2">
             <form class="card p-2">
                 <div class="form-group">
-                    <label for="question">Название</label>
+                    <label for="question">Name</label>
                     <input type="text" v-model="name" id="question" name="question" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="unswer">Описание</label>
+                    <label for="unswer">Description</label>
                     <textarea type="text" v-model="desc" rows="5" id="unswer" name="unswer" class="form-control">
 
                     </textarea>
                 </div>
                 <div class="row">
                    <div class="form-group col-6">
-                        <label for="shir">Широта</label>
+                        <label for="shir">Latitude</label>
                         <input type="text" v-model="shir"  id="shir" name="shir" class="form-control">
                     </div>
                     <div class="form-group col-6">
-                        <label for="unswer">Долгота</label>
+                        <label for="unswer">Longitude</label>
                         <input type="text" v-model="dolg" id="dolg" name="dolg" class="form-control">
                     </div> 
                 </div>
 
                 <span class="btn btn-primary" @click="addWork()">
-                    Добавить Выполненную работу
+                    Add
                 </span>
             </form>
         </div>
@@ -32,7 +32,7 @@
         <hr class="my-4">
 
         <div class="coasts">
-            <button class="btn btn-primary" @click="getWorks()">Получить работы</button>
+            <button class="btn btn-primary" @click="getWorks()">Get works</button>
 
             <div class="coasts row my-2">
                 <div class=" col-sm-12 col-md-6 col-lg-6 coast" v-for="(work, idx) in works">
@@ -41,11 +41,11 @@
                         <div class="p-1">
                             <form class="card p-2">
                                 <div class="form-group">
-                                    <label for="question">Название</label>
+                                    <label for="question">Name</label>
                                     <input type="text" v-model="work.name" name="question" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="unswer">Описание</label>
+                                    <label for="unswer">Descriotion</label>
                                     <textarea type="text" v-model="work.desc" name="unswer" class="form-control">
 
                                     </textarea>
@@ -56,11 +56,11 @@
                                         <div class="col-6">
                                             <span class="btn btn-warning"
                                                   @click="openWork(work.id)">
-                                                  Перейти к работе
+                                                  Go to work
                                             </span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="btn btn-danger" @click="deleteWork(work.id)">Удалить </span>
+                                            <span class="btn btn-danger" @click="deleteWork(work.id)">Delete</span>
                                         </div>
                                     </div>
                                 </div>
@@ -110,11 +110,11 @@
                             'Authorization': this.$store.getters.API.token
                         }
                     });
-                    alert('Работа добавлена');
+                    alert('Success');
                     this.works.push(response.data);
                     this.$store.commit('request_status', false);
                 } catch (error) {
-                    alert('Ошибка добавления работы');
+                    alert('Error');
                     console.log(error);
                     this.$store.commit('request_status', false);
                 }
@@ -136,7 +136,7 @@
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка получения работ')
+                    alert('Error')
                 }
             },
             async deleteWork(id) {
@@ -149,11 +149,11 @@
                         }
                     });
                     this.works = this.works.filter(work => work.id !== id);
-                    alert("Удалено");
+                    alert("Succedd");
                     this.$store.commit('request_status', false);
                 } catch (error) {
                     this.$store.commit('request_status', false);
-                    alert('Ошибка удаления')
+                    alert('Error')
                 }
 
             },
