@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper container-fluid">
-        <h3> {{ camera().name }}</h3>
-        <img :src="$store.getters.API.url + '/proxy/'+camera().connection_string"
+        <h3> {{ camera.name || '' }}</h3>
+        <img :src="$store.getters.API.url + '/proxy/'+camera.connection_string"
              id="camera"
              class="d-block mx-auto img-fluid"
              alt="">
@@ -23,7 +23,10 @@
             }
         },
         computed: {
-
+            camera() {
+                const CAMERAS = this.$store.getters.CAMERAS;
+                return CAMERAS[this.current_camera];
+            },
         },
         beforeCreate () {
             if(this.$store.getters.SELF.logged === false) {
@@ -37,11 +40,7 @@
             cameras_amount() {
                 return this.$store.getters.CAMERAS.length;
             },
-            camera() {
-                const CAMERAS = this.$store.getters.CAMERAS;
-                const camera = CAMERAS[this.current_camera];
-                return camera;
-            },
+
             next() {
                 if (this.current_camera + 1 >= this.cameras_amount()) {
                     this.current_camera = 0;

@@ -10,118 +10,33 @@ const Message = require("./models/message");
 const Work = require("./models/work");
 const News = require("./models/news");
 const Bonuses = require("./models/bonus");
-const Project = require("./models/project")
+const Project = require("./models/project");
 
 const app = require('express')();
 const bodyParser = require('body-parser');
 const sequelize = require('sequelize');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+require('./io')(io);
 
-//PROJECT
+let force = true;
 
-db.sync({force: false}).then(() => {
+db.sync({force: force}).then(() => {
 
-    // User.create({
-    //     id: 1,
-    //     login:'abminadmin',
-    //     pass: 'Passw0rd',
-    //     name: 'Simon',
-    //     is_admin: 1,
-    //     token: '1'
-    // })
-
-    // User.create({
-    //     id: 2,
-    //     login: 'simonsimon',
-    //     pass: '6f481be',
-    //     name: 'User',
-    //     is_admin: 0,
-    //     token: '2'
-    // })
-
-    // Camera.create({
-    //     name: 'Камера1',
-    //     owner_id: 2,
-    //     connection_string: 'http://217.197.157.7:7070/axis-cgi/mjpg/video.cgi?camera=1'
-    // })
-
-    // Camera.create({
-    //     name: 'Камера2',
-    //     owner_id: 2,
-    //     connection_string: 'http://meteobunyol.axiscam.net:9000/mjpg/video.mjpg'
-    // })
+    if(force) require('./migrations')(User, Camera)
 
 });
- //sequelize.sync()
+//sequelize.sync()
 
 require('./usages')(app, bodyParser);
 require('./routes')(app);
-
-let getUser = async (token) => {
-
-    return await User.findOne({
-        attributes: ["id", "login", "name", "pass", "is_admin"],
-        where: {
-            token: token
-        }
-    }).then(user => user)
-    .catch(err => null)
-};
-
-io.use( async (socket, next) => {
-    let token = socket.handshake.query.token;
-    let user = await getUser(token);
-    if (token) {
-        socket.user = user;
-        return next();
-    }
-    return next(new Error('authentication error'));
-});
-
-let createMessage = async (socket, msg) => {
-    return await Message.create({
-        text:msg,
-        user_id: socket.user.id ,
-        room: socket.room
-    }).then(message => message).catch(err => err)
-};
-
-io.on('connection', (socket) => {
-    console.log("user connected");
-
-    socket.on('createRoom', (room) => {
-       socket.join(room);
-       socket.room = room;
-    });
-
-    socket.on('leaveRoom', (room) => {
-        socket.leave(room);
-        socket.room = null;
-    });
-
-    socket.on('message', async msg => {
-        console.log(msg + " message!!!");
-        try {
-            const message = await createMessage(socket, msg);
-            io.to(socket.room).emit('message', message);
-        } catch(err) {
-            console.log(err);
-        }
-    });
-
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-});
-
 
 db
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
-        http.listen(3001, function () {
-            console.log('listening on ' + 3001);
+        http.listen(process.env.PORT, function () {
+            console.log('listening on ' + process.env.PORT);
         });
     })
     .catch(err => {

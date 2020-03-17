@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>Docs</title>
+</head>
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        color: #333333;
+        font-weight: lighter;
+    }
+    hr{
+        border: 1px solid silver; margin-top: 28px;margin-bottom: 28px;
+    }
+    h4{
+        margin-left: 12px;
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+    .center {
+        text-align: center
+    }
+    .light {
+        font-weight: lighter;
+    }
+    .light-1 {
+        font-weight: lighter;
+        color: #5b5b5b;
+        font-size: 14px;
+    }
+    .ml-12{
+        margin-left: 12px;
+    }
+    .path{
+        background: #dcdcdc;
+        margin-right: 8px;
+        padding: 2px;
+    }
+
+</style>
+
+<body style="background: #f3f3f3">
+
+<div class="text" style="width: 80%; margin: auto;min-height: 100vh; background: #fdfdfd; padding: 16px;box-shadow: 0 0  2px 2px rgba(0,0,0,0.1)">
+
+    <h1 class=" center">Documentation</h1>
+
+    <h3 class=" center">
+        Documentation for Video Management System
+    </h3>
+
+    <hr >
+
+    <h3>Requirements</h3>
+    <ul>
+        <li>Node.js</li>
+        <li>Postgres</li>
+    </ul>
+
+    <h3>This app consists of 3 parts:</h3>
+    <ul>
+        <li>/ <span class="light-1 ml-12"> - main(server) app</span> </li>
+        <li>/client <span class="light-1 ml-12"> - admin app</span></li>
+        <li>/user <span class="light-1 ml-12"> - user app</span></li>
+    </ul>
+
+    <h4> - Structure</h4>
+    <img src="readme_images/1.PNG" alt="">
+    
+    <hr >
+
+
+
+    <h3>User app</h3>
+    <img src="readme_images/2.PNG" alt="">
+    <img src="readme_images/4.PNG" alt="">
+    <p>It is simple Vue PWA app.</p>
+    <h4> - Technologies</h4>
+    <ul>
+        <li>Vue</li>
+        <li>Vuex</li>
+        <li>Vue Router</li>
+        <li>Bootstrap</li>
+    </ul>
+
+    <h4> - Structure </h4>
+    <ul>
+        <li><span class="path">/user/src/assets</span> for your assets (styles, images...)</li>
+        <li><span class="path">/user/src/components</span> for your no-pages Vue components</li>
+        <li><span class="path">/user/src/pages</span> for your Vue pages</li>
+        <li><span class="path">/user/src/router</span> for Vue router</li>
+        <li><span class="path">/user/src/services</span> for your Validate Service</li>
+        <li><span class="path">/user/src/store</span> for Vuex</li>
+        <li><span class="path">/user/src/App.vue</span> entry point</li>
+    </ul>
+
+    <img src="readme_images/5.PNG" alt="">
+    <br>
+    <img src="readme_images/6.PNG" alt="">
+    <br>
+    <img src="readme_images/7.PNG" alt="">
+    <img src="readme_images/8.PNG" alt="">
+    <hr >
+
+
+
+    <h3>Admin app</h3>
+    <img src="readme_images/9.PNG" alt="">
+    <img src="readme_images/12.PNG" alt="">
+    <p>It is simple Vue PWA app.</p>
+    <h4> - Technologies</h4>
+    <ul>
+        <li>Vue</li>
+        <li>Vuex</li>
+        <li>Vue Router</li>
+        <li>Bootstrap</li>
+    </ul>
+
+    <h4> - Structure </h4>
+    <ul>
+        <li><span class="path">/user/src/assets</span> for your assets (styles, images...)</li>
+        <li><span class="path">/user/src/components</span> for your no-pages Vue components</li>
+        <li><span class="path">/user/src/pages</span> for your Vue pages</li>
+        <li><span class="path">/user/src/router</span> for Vue router</li>
+        <li><span class="path">/user/src/services</span> for your Validate Service</li>
+        <li><span class="path">/user/src/store</span> for Vuex</li>
+        <li><span class="path">/user/src/App.vue</span> entry point</li>
+    </ul>
+
+    <img src="readme_images/a.PNG" alt="">
+    <br>
+    <img src="readme_images/b.PNG" alt="">
+    <br>
+    <img src="readme_images/c.PNG" alt="">
+    <img src="readme_images/d.PNG" alt="">
+
+    <hr >
+
+    <h3>Server app</h3>
+
+    <img src="readme_images/1.PNG" alt="">
+
+    <p>It is Node.js app</p>
+    <h4> - Technologies</h4>
+    <ul>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>Sequelize</li>
+        <li>Postgres</li>
+    </ul>
+
+    <p>Configure your .env (default ports for admin and client app is 3001, if you want to to change it, change it also in /user/config/dev.env.js and /client/config/dev.env.js)</p>
+    <img src="readme_images/z.PNG" alt="">
+
+    <h4> - Structure </h4>
+    <ul>
+        <li><span class="path">/uploads  </span> for uploads</li>
+        <li><span class="path">/steps  </span> for uploads</li>
+        <li><span class="path">/index.js</span> entry point</li>
+        <li><span class="path">/io.js</span> for sockets</li>
+        <li><span class="path">/migrations.js</span> for your migrations</li>
+        <li><span class="path">/controllers</span> for your Controllers</li>
+        <li><span class="path">/models</span> for database and models</li>
+        <li><span class="path">/usages.js</span>Express middleware</li>
+    </ul>
+
+    <br>
+    <h5>
+        Build your user and admin app (npm run build)
+    </h5>
+    <h5>
+        Main admin is user with id=1
+    </h5>
+
+    <p>Turn to true for migrate</p>
+    <img src="readme_images/m.PNG" alt="">
+    <br>
+    <p>Run your app</p>
+    <img src="readme_images/n.PNG" alt="">
+    <br>
+    <img src="readme_images/aa.PNG" alt="">
+    <br>
+    <p>
+        Go to <span class="path">http://localhost:3001/admin</span>
+    </p>
+    <br>
+    <img src="readme_images/bbb.PNG" alt="">
+    <br>
+    <img src="readme_images/abc.PNG" alt="">
+    <p>
+        Type login and password from migrations
+    </p>
+    <br><br>
+    <h4>
+        Congratulations, You are in the app!
+    </h4>
+    <img src="readme_images/g.PNG" alt="">
+
+
+
+
+    <hr >
+
+
+</div>
+
+</body>
+</html>

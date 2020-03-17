@@ -2,62 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a4f6f0c-8444-43b7-aeed-1560f9e587ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Message.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Benefit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Coasts.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Questions.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/services/SocketService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/store/modules/socket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/BenefitController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/CoastController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/MessagesControlle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/QuestionController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/SocketController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/benefit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/coasts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/Benefit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/Bonuses.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/Coasts.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/News.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/Unswers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/pages/Works.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/src/store/modules/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.enc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.epv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.save" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.epv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config/dev.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/config/prod.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config/prod.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/css/app.1bca585c882e2a03354e8301ff91a2c2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/css/app.1bca585c882e2a03354e8301ff91a2c2.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/app.9257093abacc68085a3b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/app.9257093abacc68085a3b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/manifest.38daf980656038eb18b9.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/static1/js/manifest.38daf980656038eb18b9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/manifest.38daf980656038eb18b9.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/static1/js/manifest.38daf980656038eb18b9.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/vendor.af1bdae379815db99b4e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static1/js/vendor.af1bdae379815db99b4e.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Chats.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chats.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/SocketService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/ValidateService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/ValidateService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/store/modules/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/modules/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/modules/self.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/modules/self.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nohup.out" beforeDir="false" afterPath="$PROJECT_DIR$/nohup.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usages.js" beforeDir="false" afterPath="$PROJECT_DIR$/usages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/config/dev.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/config/prod.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/config/prod.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/css/app.bb2fd037e17ee2f509aa666ddcc7a98f.css" beforeDir="false" afterPath="$PROJECT_DIR$/user/dist/static/css/app.bb2fd037e17ee2f509aa666ddcc7a98f.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/app.737667fd37223232089c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/app.737667fd37223232089c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/user/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/vendor.101549b29978eb29b648.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dist/static/js/vendor.101549b29978eb29b648.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/user/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/user/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/pages/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/pages/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/pages/Chats.vue" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/pages/Chats.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/pages/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/services/ValidateService.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/services/ValidateService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/store/modules/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/store/modules/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/store/modules/self.js" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/store/modules/self.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,165 +58,40 @@
       <executable />
     </execution>
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="66" selection-start-line="66" selection-end-line="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/MessagesControlle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/BenefitController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/SocketController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/message.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/question.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/UsersController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>static</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/controllers/AuthController.js" />
-        <option value="$PROJECT_DIR$/models/user.js" />
-        <option value="$PROJECT_DIR$/models/camera.js" />
-        <option value="$PROJECT_DIR$/controllers/CameraController.js" />
-        <option value="$PROJECT_DIR$/admin/index.html" />
-        <option value="$PROJECT_DIR$/controllers/UsersController.js" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/controllers/CoastController.js" />
-        <option value="$PROJECT_DIR$/models/coasts.js" />
-        <option value="$PROJECT_DIR$/models/benefit.js" />
-        <option value="$PROJECT_DIR$/controllers/QuestionController.js" />
-        <option value="$PROJECT_DIR$/models/question.js" />
-        <option value="$PROJECT_DIR$/controllers/BenefitController.js" />
-        <option value="$PROJECT_DIR$/usages.js" />
-        <option value="$PROJECT_DIR$/models/message.js" />
-        <option value="$PROJECT_DIR$/controllers/SocketController.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/routes.js" />
-        <option value="$PROJECT_DIR$/controllers/MessagesControlle.js" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="62" />
-    <option name="y" value="384" />
-    <option name="width" value="434" />
-    <option name="height" value="384" />
-  </component>
+  <component name="ProjectId" id="1WcXaor3ZdQnXiOCC4M9yNzvdsj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -236,22 +101,23 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Семен\Desktop\domles\server\admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Семен\Desktop\domles\server" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\vms\docs" />
+      <recent name="C:\Users\Семен\Desktop\domles\server\admin" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -279,227 +145,27 @@
       <workItem from="1564147169948" duration="22201000" />
       <workItem from="1564392988570" duration="4843000" />
       <workItem from="1564462682604" duration="21553000" />
+      <workItem from="1579449933527" duration="4986000" />
+      <workItem from="1579520421241" duration="1218000" />
+      <workItem from="1579525331188" duration="31076000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135999000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.16825397" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.50384027" />
-      <window_info anchor="bottom" id="Database Changes" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15238096" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.42396313" />
-      <window_info anchor="bottom" id="Database Changes" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static1/js/app.26e83143197ac0af94a6.js" />
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/AuthController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="65" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.epv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/CameraController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#129#374#0" />
-            <element signature="e#403#881#0" />
-            <element signature="e#908#1238#0" />
-            <element signature="e#1268#1483#0" />
-            <element signature="e#1513#1950#0" />
-            <element signature="e#1975#2355#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/camera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="54" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/coasts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/benefit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="24" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="210" selection-start-column="210" selection-end-column="210" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/QuestionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/CoastController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/UsersController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/question.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/SocketController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="66" selection-start-line="66" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/BenefitController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/MessagesControlle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579450947767">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864@62.0.1474.864" timestamp="1579450947767" />
+    <state x="496" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1579525817986">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="496" y="258" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1579525817986" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1579783755570">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1579783755570" />
   </component>
 </project>

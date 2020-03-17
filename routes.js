@@ -16,22 +16,22 @@ const path = require('path');
 
 module.exports = (app) => {
 
-    app.options('/user', UsersController.options);
-    app.options('/camera', CameraController.options);
-    app.options('/coasts', CoastController.options);
-    app.options('/questions', QuestionController.options);
-    app.options('/works', WorkController.options);
-    app.options('/news', NewsController.options);
-    app.options('/bonuses', BonusesController.options);
-    app.options('/benefit', BenefitController.options);
-    app.options('/project', ProjectController.options);
-    app.options('/api/cameras', CameraController.options);
-    app.options('/api/questions', QuestionController.options);
-    app.options('/api/benefits', BenefitController.options);
-    app.options('/api/coasts', CoastController.options);
-    app.options('/api/works', WorkController.options);
-    app.options('/api/news', NewsController.options);
-    app.options('/api/bonuses', BonusesController.options);
+    // app.options('/user', UsersController.options);
+    // app.options('/camera', CameraController.options);
+    // app.options('/coasts', CoastController.options);
+    // app.options('/questions', QuestionController.options);
+    // app.options('/works', WorkController.options);
+    // app.options('/news', NewsController.options);
+    // app.options('/bonuses', BonusesController.options);
+    // app.options('/benefit', BenefitController.options);
+    // app.options('/project', ProjectController.options);
+    // app.options('/api/cameras', CameraController.options);
+    // app.options('/api/questions', QuestionController.options);
+    // app.options('/api/benefits', BenefitController.options);
+    // app.options('/api/coasts', CoastController.options);
+    // app.options('/api/works', WorkController.options);
+    // app.options('/api/news', NewsController.options);
+    // app.options('/api/bonuses', BonusesController.options);
 
     app.post('/login', AuthController.login);
 

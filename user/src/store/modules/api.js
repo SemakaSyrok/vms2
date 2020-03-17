@@ -1,9 +1,6 @@
 
 const state = {
-    // url: 'https://video-surveillance-system.herokuapp.com',
-    // url: 'https://domles-nsk.ru',
-    // url: 'http://localhost:3001',
-    url: 'https://vms.simon-svirkov.com',
+    url: process.env.adress,
     is_request: false,
     token: null
 };
